@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { Mail, Send, CheckCircle2, Copy, Sparkles, MessageSquare } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, Send, CheckCircle2, Copy, MessageSquare, Zap } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
@@ -26,171 +27,196 @@ export default function Contact({ isModalOpen, onCloseModal }) {
   };
 
   return (
-    <section id="contact" className="py-24 relative bg-[#0B0F17] border-t border-slate-800/80">
-      
-      {/* Background glow */}
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-gradient-to-t from-cyan-500/10 to-transparent blur-[120px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+    <section id="contact" className="py-24 relative bg-[#08090f] border-t border-purple-500/20 bg-pro-dots">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Header */}
-        <div className="flex flex-col items-center text-center space-y-3 mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-mono">
-            <MessageSquare className="w-3.5 h-3.5" />
-            <span>Direct Communication</span>
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">
-            Get in <span className="text-cyan-400">Touch</span>
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-50px' }}
+          transition={{ duration: 0.4 }}
+          className="flex flex-col items-center text-center space-y-2 mb-14"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.05 }}
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+          >
+            <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
+            <span>START QUEST / DIRECT CONTACT</span>
+          </motion.div>
+          <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
+            Send Message to Player 1
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl">
-            Have a question, project proposal, or opportunity? Feel free to drop a message.
+            Have a project proposal, technical question, or quest opportunity? Send a message directly.
           </p>
-        </div>
+        </motion.div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
           
-          {/* Quick Contact Info Cards (5 Cols) */}
-          <div className="md:col-span-5 space-y-4">
+          {/* Contact Info Cards (5 Cols) */}
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4 }}
+            className="md:col-span-5 space-y-4"
+          >
             
             {/* Email Card */}
-            <div className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 backdrop-blur-md space-y-3">
+            <motion.div 
+              whileHover={{ y: -3, scale: 1.01 }}
+              className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 space-y-3 pro-card hud-corner cursor-pointer"
+            >
               <div className="flex items-center justify-between">
-                <div className="p-2.5 rounded-xl bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">
+                <div className="p-2.5 rounded-xl bg-[#08090f] text-purple-400 border border-purple-500/30">
                   <Mail className="w-5 h-5" />
                 </div>
-                <button
+                <motion.button
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
                   onClick={handleCopyEmail}
-                  className="px-2.5 py-1 rounded-lg bg-slate-800 text-[11px] font-mono text-slate-300 hover:text-cyan-400 transition-colors flex items-center gap-1 cursor-pointer"
+                  className="px-3 py-1.5 rounded-lg bg-[#08090f] border border-purple-500/30 text-[11px] font-mono text-purple-300 hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer font-bold"
                 >
                   {copied ? (
                     <>
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
                       <span>Copied!</span>
                     </>
                   ) : (
                     <>
-                      <Copy className="w-3 h-3" />
-                      <span>Copy</span>
+                      <Copy className="w-3.5 h-3.5 text-slate-400" />
+                      <span>Copy Email</span>
                     </>
                   )}
-                </button>
+                </motion.button>
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">Email Address</span>
-                <p className="text-sm font-semibold text-white truncate">{personal.email}</p>
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">Direct Email Channel</span>
+                <p className="text-sm font-bold text-white truncate">{personal.email}</p>
               </div>
-            </div>
+            </motion.div>
 
             {/* LinkedIn Card */}
-            <a
+            <motion.a
+              whileHover={{ y: -3, scale: 1.01 }}
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-indigo-500/40 backdrop-blur-md space-y-3 block group transition-all"
+              className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 hover:border-purple-400 space-y-3 block group transition-all pro-card hud-corner cursor-pointer"
             >
-              <div className="p-2.5 rounded-xl bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 w-fit">
+              <div className="p-2.5 rounded-xl bg-[#08090f] text-purple-400 border border-purple-500/30 w-fit">
                 <Linkedin className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">LinkedIn Profile</span>
-                <p className="text-sm font-semibold text-white group-hover:text-indigo-400 transition-colors">
-                  {personal.name} on LinkedIn
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">LinkedIn Network</span>
+                <p className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors">
+                  {personal.name}
                 </p>
               </div>
-            </a>
+            </motion.a>
 
             {/* GitHub Card */}
-            <a
+            <motion.a
+              whileHover={{ y: -3, scale: 1.01 }}
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-6 rounded-2xl bg-slate-900/60 border border-slate-800 hover:border-cyan-500/40 backdrop-blur-md space-y-3 block group transition-all"
+              className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 hover:border-purple-400 space-y-3 block group transition-all pro-card hud-corner cursor-pointer"
             >
-              <div className="p-2.5 rounded-xl bg-slate-800 text-slate-200 border border-slate-700 w-fit">
+              <div className="p-2.5 rounded-xl bg-[#08090f] text-slate-200 border border-purple-500/30 w-fit">
                 <Github className="w-5 h-5" />
               </div>
               <div>
-                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400">GitHub Profile</span>
-                <p className="text-sm font-semibold text-white group-hover:text-cyan-400 transition-colors">
-                  github.com/avrixxx
+                <span className="text-[10px] font-mono uppercase tracking-wider text-slate-400 font-semibold">GitHub Vault</span>
+                <p className="text-sm font-bold text-white group-hover:text-purple-300 transition-colors">
+                  github.com/Aufariqrf
                 </p>
               </div>
-            </a>
+            </motion.a>
 
-          </div>
+          </motion.div>
 
-          {/* Interactive Message Box (7 Cols) */}
-          <div className="md:col-span-7">
-            <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-slate-800 backdrop-blur-xl shadow-xl">
+          {/* Form (7 Cols) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: '-40px' }}
+            transition={{ duration: 0.4 }}
+            className="md:col-span-7"
+          >
+            <div className="p-6 sm:p-8 rounded-2xl bg-[#0f111e] border border-purple-500/30 shadow-2xl pro-card hud-corner">
               
               {submitted ? (
-                <div className="py-12 text-center space-y-4 animate-in fade-in">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
-                    <CheckCircle2 className="w-8 h-8" />
+                <div className="py-12 text-center space-y-3">
+                  <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
+                    <CheckCircle2 className="w-6 h-6 animate-bounce" />
                   </div>
-                  <h3 className="text-xl font-bold text-white">Message Sent Successfully!</h3>
+                  <h3 className="text-lg font-bold text-white">QUEST TRANSMITTED!</h3>
                   <p className="text-slate-400 text-xs sm:text-sm">
-                    Thank you for reaching out. I will get back to you as soon as possible.
+                    Thank you for reaching out. Message received by Player 1.
                   </p>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-4">
-                  <div className="flex items-center justify-between pb-3 border-b border-slate-800">
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <Sparkles className="w-4 h-4 text-cyan-400" />
-                      <span>Send a Message</span>
+                  <div className="flex items-center justify-between pb-3 border-b border-purple-500/20">
+                    <h3 className="text-base font-bold text-white">
+                      Transmit Direct Message
                     </h3>
-                    <span className="text-[10px] font-mono text-slate-400">Fast Response</span>
+                    <span className="text-[10px] font-mono text-purple-300 font-bold">READY TO TRANSMIT</span>
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-slate-300">Your Name</label>
+                    <label className="text-xs font-bold text-slate-300">Your Name / Organization</label>
                     <input
                       type="text"
                       required
-                      placeholder="e.g. Recruiter / Collaborator"
+                      placeholder="e.g. Recruiter / Client"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white text-xs placeholder:text-slate-600 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-purple-500/30 text-white text-xs placeholder:text-slate-600 focus:border-purple-400 outline-none transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-slate-300">Your Email</label>
+                    <label className="text-xs font-bold text-slate-300">Your Email Address</label>
                     <input
                       type="email"
                       required
-                      placeholder="name@example.com"
+                      placeholder="name@company.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white text-xs placeholder:text-slate-600 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all"
+                      className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-purple-500/30 text-white text-xs placeholder:text-slate-600 focus:border-purple-400 outline-none transition-colors"
                     />
                   </div>
 
                   <div className="space-y-1">
-                    <label className="text-xs font-medium text-slate-300">Message</label>
+                    <label className="text-xs font-bold text-slate-300">Quest Proposal / Message</label>
                     <textarea
                       required
                       rows={4}
-                      placeholder="Hello AVRIXXX, I would like to discuss..."
+                      placeholder="Hello Aufariq, I would like to discuss..."
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-slate-950/80 border border-slate-800 text-white text-xs placeholder:text-slate-600 focus:border-cyan-500 focus:ring-1 focus:ring-cyan-500 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-[#08090f] border border-purple-500/30 text-white text-xs placeholder:text-slate-600 focus:border-purple-400 outline-none transition-colors resize-none"
                     />
                   </div>
 
-                  <button
+                  <motion.button
+                    whileHover={{ scale: 1.02, y: -2 }}
+                    whileTap={{ scale: 0.96 }}
                     type="submit"
-                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-white font-semibold text-xs shadow-lg shadow-cyan-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full py-3.5 rounded-xl bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-500 hover:from-purple-500 hover:to-emerald-400 text-white font-black text-xs shadow-lg shadow-purple-950/50 transition-all flex items-center justify-center gap-2 cursor-pointer border border-purple-400/40 group"
                   >
-                    <Send className="w-4 h-4" />
-                    <span>Send Message</span>
-                  </button>
+                    <Send className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                    <span>SEND QUEST TRANSMISSION NOW</span>
+                  </motion.button>
                 </form>
               )}
 
             </div>
-          </div>
+          </motion.div>
 
         </div>
       </div>

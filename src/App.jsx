@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import TickerBanner from './components/TickerBanner';
 import About from './components/About';
 import Skills from './components/Skills';
 import Projects from './components/Projects';
@@ -12,6 +13,9 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CvModal from './components/CvModal';
 import CertificateModal from './components/CertificateModal';
+import WelcomeLoader from './components/WelcomeLoader';
+import GlowParticles from './components/GlowParticles';
+import AchievementPopup from './components/AchievementPopup';
 
 export default function App() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -35,14 +39,23 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0F17] text-slate-100 font-sans selection:bg-cyan-500/30 selection:text-cyan-200">
-      {/* Sticky Navigation */}
+    <div className="min-h-screen bg-[#08090f] text-slate-100 font-sans selection:bg-purple-500/30 selection:text-purple-200 relative overflow-x-hidden">
+      {/* Ambient Glowing Animated Background Orbs */}
+      <GlowParticles />
+
+      {/* Initial Welcome Loader Animation */}
+      <WelcomeLoader />
+
+      {/* Sticky Navigation with Integrated Top Game HUD Status Bar */}
       <Navbar onOpenContact={handleOpenContact} onOpenCv={handleOpenCv} />
 
       {/* Main Content Sections */}
-      <main>
-        {/* 1. Hero Section */}
+      <main className="relative z-10">
+        {/* 1. Hero Section with Typewriter Title */}
         <Hero onOpenContact={handleOpenContact} onOpenCv={handleOpenCv} onOpenCert={handleOpenCert} />
+
+        {/* Continuous Cyber Ticker Banner */}
+        <TickerBanner />
 
         {/* 2. About Section */}
         <About />
@@ -68,6 +81,9 @@ export default function App() {
         {/* 9. Contact Section */}
         <Contact />
       </main>
+
+      {/* Floating RPG Achievement Unlocked Toast Notification */}
+      <AchievementPopup />
 
       {/* 10. Footer */}
       <Footer />

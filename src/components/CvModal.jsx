@@ -52,7 +52,7 @@ export default function CvModal({ isOpen, onClose }) {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.2, ease: 'easeOut' }}
-          className="relative w-full max-w-4xl bg-slate-900 rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh] z-10"
+          className="relative w-full max-w-4xl bg-[#0a0d16] rounded-3xl border border-slate-800 shadow-2xl overflow-hidden flex flex-col max-h-[90vh] z-10"
         >
           
           {/* Modal Toolbar Header */}

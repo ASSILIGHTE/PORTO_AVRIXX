@@ -31,7 +31,7 @@ export default function CertificateModal({ isOpen, onClose, certId = "bnsp-junio
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ duration: 0.25, ease: 'easeOut' }}
-          className="relative w-full max-w-5xl bg-[#0F172A] rounded-3xl border border-slate-800 shadow-2xl shadow-cyan-500/10 overflow-hidden flex flex-col max-h-[92vh] z-10"
+          className="relative w-full max-w-5xl bg-[#0a0d16] rounded-3xl border border-slate-800 shadow-2xl shadow-indigo-950/30 overflow-hidden flex flex-col max-h-[92vh] z-10"
         >
           
           {/* Header Toolbar */}

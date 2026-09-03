@@ -1,5 +1,6 @@
 import React from 'react';
-import { Mail, Code2, ArrowUp } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { Mail, ArrowUp, Gamepad2 } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
@@ -12,62 +13,81 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#070A0F] border-t border-slate-800/80 py-12 relative">
+    <footer className="bg-[#05060a] border-t border-purple-500/20 py-12 relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800/80">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-purple-500/20">
           
-          {/* Logo & Tagline */}
+          {/* Gamer Logo & Tagline */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left space-y-1">
             <div className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-lg bg-gradient-to-tr from-cyan-500 to-indigo-500 flex items-center justify-center text-white">
-                <Code2 className="w-4 h-4" />
+              <motion.div 
+                whileHover={{ rotate: 15, scale: 1.1 }}
+                className="w-8 h-8 rounded-xl bg-[#0f111e] border border-purple-500/40 flex items-center justify-center text-purple-400 font-mono font-bold text-xs cursor-pointer shadow-md hud-corner"
+              >
+                <Gamepad2 className="w-4 h-4 text-purple-400" />
+              </motion.div>
+              <div className="flex items-center gap-1.5">
+                <span className="font-extrabold text-base text-white tracking-tight">
+                  {personal.brandName}
+                </span>
+                <span className="px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 text-[9px] font-mono font-bold">P1</span>
               </div>
-              <span className="font-extrabold text-lg text-white tracking-tight">
-                {personal.name}
-              </span>
             </div>
-            <p className="text-xs text-slate-400 font-mono">
-              {personal.title}
+            <p className="text-xs text-purple-300 font-mono font-semibold">
+              {personal.title} • GAMER HUD ACTIVE
             </p>
           </div>
 
           {/* Social Links */}
-          <div className="flex items-center gap-4">
-            <a
+          <div className="flex items-center gap-3">
+            <motion.a
+              whileHover={{ y: -4, scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
               href={personal.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-cyan-400 hover:border-cyan-500/30 transition-all"
+              className="p-2.5 rounded-xl bg-[#0f111e] border border-purple-500/30 text-slate-300 hover:text-white hover:border-purple-400 transition-colors"
               aria-label="GitHub"
             >
               <Github className="w-4 h-4" />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
+              whileHover={{ y: -4, scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
               href={personal.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-indigo-400 hover:border-indigo-500/30 transition-all"
+              className="p-2.5 rounded-xl bg-[#0f111e] border border-purple-500/30 text-slate-300 hover:text-white hover:border-purple-400 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-4 h-4" />
-            </a>
+            </motion.a>
 
-            <a
+            <motion.a
+              whileHover={{ y: -4, scale: 1.15 }}
+              whileTap={{ scale: 0.9 }}
               href={`mailto:${personal.email}`}
-              className="p-2.5 rounded-xl bg-slate-900 border border-slate-800 text-slate-400 hover:text-emerald-400 hover:border-emerald-500/30 transition-all"
+              className="p-2.5 rounded-xl bg-[#0f111e] border border-purple-500/30 text-slate-300 hover:text-white hover:border-purple-400 transition-colors"
               aria-label="Email"
             >
               <Mail className="w-4 h-4" />
-            </a>
+            </motion.a>
 
-            <button
+            <motion.button
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.9 }}
               onClick={scrollToTop}
-              className="p-2.5 rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 hover:bg-cyan-500/20 transition-all ml-2 cursor-pointer"
+              className="p-2.5 rounded-xl bg-purple-600 border border-purple-400 text-white hover:bg-purple-500 transition-colors ml-2 cursor-pointer shadow-md shadow-purple-950/40"
               aria-label="Scroll to top"
             >
-              <ArrowUp className="w-4 h-4" />
-            </button>
+              <motion.div
+                animate={{ y: [0, -3, 0] }}
+                transition={{ repeat: Infinity, duration: 1.8, ease: "easeInOut" }}
+              >
+                <ArrowUp className="w-4 h-4" />
+              </motion.div>
+            </motion.button>
           </div>
 
         </div>
@@ -75,7 +95,10 @@ export default function Footer() {
         {/* Dynamic Copyright Footer */}
         <div className="pt-6 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-400 font-mono gap-2 text-center sm:text-left">
           <div>
-            © {currentYear} {personal.name}. All rights reserved.
+            © {currentYear} {personal.name} ({personal.brandName}). All rights reserved.
+          </div>
+          <div className="text-purple-300 text-[11px] font-bold">
+            GAMER HUD PORTFOLIO • REACT 19 & TAILWIND CSS
           </div>
         </div>
 
