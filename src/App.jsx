@@ -15,7 +15,7 @@ import CvModal from './components/CvModal';
 import CertificateModal from './components/CertificateModal';
 import WelcomeLoader from './components/WelcomeLoader';
 import GlowParticles from './components/GlowParticles';
-import AchievementPopup from './components/AchievementPopup';
+
 
 export default function App() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
@@ -81,9 +81,6 @@ export default function App() {
         {/* 9. Contact Section */}
         <Contact />
       </main>
-
-      {/* Floating RPG Achievement Unlocked Toast Notification */}
-      <AchievementPopup />
 
       {/* 10. Footer */}
       <Footer />
