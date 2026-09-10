@@ -39,7 +39,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[#08090f] text-slate-100 font-sans selection:bg-purple-500/30 selection:text-purple-200 relative overflow-x-hidden">
+    <div className="min-h-screen bg-[#08090f] text-slate-100 font-sans selection:bg-sky-500/30 selection:text-sky-200 relative overflow-x-hidden">
       {/* Ambient Glowing Animated Background Orbs */}
       <GlowParticles />
 

@@ -19,7 +19,7 @@ export default function Skills() {
 
   const categories = [
     { id: 'all', label: 'All Skill Tree', icon: <Layers className="w-3.5 h-3.5" /> },
-    { id: 'backend', label: 'Backend Buffs', icon: <Server className="w-3.5 h-3.5 text-purple-400" /> },
+    { id: 'backend', label: 'Backend Buffs', icon: <Server className="w-3.5 h-3.5 text-sky-400" /> },
     { id: 'frontend', label: 'Frontend Abilities', icon: <Code2 className="w-3.5 h-3.5 text-teal-400" /> },
     { id: 'database', label: 'Database Vault', icon: <Database className="w-3.5 h-3.5 text-sky-400" /> },
     { id: 'dataAi', label: 'AI & Data Mastery', icon: <BrainCircuit className="w-3.5 h-3.5 text-amber-400" /> },
@@ -40,7 +40,7 @@ export default function Skills() {
   };
 
   return (
-    <section id="skills" className="py-24 relative bg-[#08090f] border-t border-purple-500/20">
+    <section id="skills" className="py-24 relative bg-[#08090f] border-t border-sky-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -53,9 +53,9 @@ export default function Skills() {
         >
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
-            <Swords className="w-3.5 h-3.5 text-purple-400" />
+            <Swords className="w-3.5 h-3.5 text-sky-400" />
             <span>PLAYER TECH INVENTORY</span>
           </motion.div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -78,8 +78,8 @@ export default function Skills() {
                 onClick={() => setActiveTab(cat.id)}
                 className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold flex items-center gap-2 transition-colors cursor-pointer ${
                   isSelected
-                    ? 'bg-purple-600 text-white border border-purple-400 shadow-md shadow-purple-950/50'
-                    : 'bg-[#0f111e] text-slate-400 hover:text-white border border-purple-500/30'
+                    ? 'bg-sky-600 text-white border border-sky-400 shadow-md shadow-sky-950/50'
+                    : 'bg-[#0f111e] text-slate-400 hover:text-white border border-sky-500/30'
                 }`}
               >
                 {cat.icon}
@@ -103,18 +103,18 @@ export default function Skills() {
                   exit={{ opacity: 0, scale: 0.97 }}
                   transition={{ duration: 0.2 }}
                   whileHover={{ y: -3, transition: { duration: 0.2 } }}
-                  className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 pro-card hud-corner flex flex-col justify-between"
+                  className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 pro-card hud-corner flex flex-col justify-between"
                 >
                   <div>
                     {/* Card Header */}
-                    <div className="flex items-center justify-between pb-4 border-b border-purple-500/20 mb-5">
+                    <div className="flex items-center justify-between pb-4 border-b border-sky-500/20 mb-5">
                       <div>
                         <h3 className="text-base font-bold text-white tracking-wide">
                           {cat.title}
                         </h3>
-                        <span className="text-[11px] font-mono text-purple-300">{cat.summary}</span>
+                        <span className="text-[11px] font-mono text-sky-300">{cat.summary}</span>
                       </div>
-                      <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#08090f] border border-purple-500/30 text-emerald-400">
+                      <span className="text-[11px] font-mono font-bold px-2.5 py-0.5 rounded-full bg-[#08090f] border border-sky-500/30 text-emerald-400">
                         {cat.items.length} SKILLS
                       </span>
                     </div>
@@ -128,7 +128,7 @@ export default function Skills() {
                           <motion.div
                             key={idx}
                             whileHover={{ scale: 1.02, x: 3 }}
-                            className="p-3 rounded-xl bg-[#08090f] border border-purple-500/20 space-y-1.5 transition-colors cursor-pointer"
+                            className="p-3 rounded-xl bg-[#08090f] border border-sky-500/20 space-y-1.5 transition-colors cursor-pointer"
                           >
                             <div className="flex items-center justify-between">
                               <div className="flex items-center gap-2">
@@ -137,14 +137,6 @@ export default function Skills() {
                                   {skill.name}
                                 </span>
                               </div>
-
-                              <span className={`text-[9px] font-mono font-black px-2 py-0.5 rounded uppercase ${
-                                isAdvanced 
-                                  ? 'bg-purple-500/20 text-purple-300 border border-purple-500/40' 
-                                  : 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40'
-                              }`}>
-                                {skill.level} LVL
-                              </span>
                             </div>
 
                             {/* Mini XP Progress bar */}
@@ -152,8 +144,8 @@ export default function Skills() {
                               <div
                                 className={`h-full rounded-full ${
                                   isAdvanced 
-                                    ? 'bg-gradient-to-r from-purple-500 to-indigo-500' 
-                                    : 'bg-gradient-to-r from-indigo-500 to-emerald-400'
+                                    ? 'bg-gradient-to-r from-sky-500 to-cyan-500' 
+                                    : 'bg-gradient-to-r from-cyan-500 to-emerald-400'
                                 }`}
                                 style={{ width: `${xpPercent}%` }}
                               />

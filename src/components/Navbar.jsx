@@ -45,12 +45,12 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
     <header className="fixed top-0 left-0 right-0 z-50 transition-all duration-200">
       
       {/* 1. Top Integrated Gamer HUD Status Bar */}
-      <div className="w-full bg-[#07080d]/95 backdrop-blur-xl border-b border-purple-500/20 py-2 px-4 font-mono text-xs select-none relative z-10">
+      <div className="w-full bg-[#07080d]/95 backdrop-blur-xl border-b border-sky-500/20 py-2 px-4 font-mono text-xs select-none relative z-10">
         <div className="max-w-7xl mx-auto flex items-center justify-between gap-4">
           
           {/* Left: Player Status */}
           <div className="flex items-center gap-2">
-            <span className="px-2 py-0.5 rounded bg-purple-600 text-white font-black text-[9px] tracking-wider uppercase">
+            <span className="px-2 py-0.5 rounded bg-sky-600 text-white font-black text-[9px] tracking-wider uppercase">
               P1 HUD
             </span>
             <span className="text-slate-300 font-bold text-[10px] hidden sm:inline-block">
@@ -133,8 +133,8 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
       {/* 2. Main Navigation Bar */}
       <div className={`transition-all duration-200 ${
         isScrolled
-          ? 'bg-[#08090f]/90 backdrop-blur-xl border-b border-purple-500/20 py-2.5 shadow-xl shadow-purple-950/30'
-          : 'bg-[#08090f]/60 backdrop-blur-md py-3 border-b border-purple-500/10'
+          ? 'bg-[#08090f]/90 backdrop-blur-xl border-b border-sky-500/20 py-2.5 shadow-xl shadow-sky-950/30'
+          : 'bg-[#08090f]/60 backdrop-blur-md py-3 border-b border-sky-500/10'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between">
@@ -144,15 +144,15 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
               href="#"
               className="flex items-center gap-2.5 group focus:outline-none"
             >
-              <div className="w-8 h-8 rounded-xl bg-[#0f111e] border border-purple-500/40 flex items-center justify-center text-purple-400 font-mono font-black text-xs group-hover:border-emerald-400 group-hover:text-emerald-300 transition-colors hud-corner shadow-md">
+              <div className="w-8 h-8 rounded-xl bg-[#0f111e] border border-sky-500/40 flex items-center justify-center text-sky-400 font-mono font-black text-xs group-hover:border-emerald-400 group-hover:text-emerald-300 transition-colors hud-corner shadow-md">
                 <Gamepad2 className="w-4 h-4 group-hover:rotate-12 transition-transform" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center gap-1.5">
-                  <span className="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-purple-300 transition-colors">
+                  <span className="font-extrabold text-sm sm:text-base tracking-tight text-white group-hover:text-sky-300 transition-colors">
                     {portfolioData.personal.brandName}
                   </span>
-                  <span className="px-1.5 py-0.2 rounded bg-purple-500/20 text-purple-300 border border-purple-500/40 text-[9px] font-mono font-bold">P1</span>
+                  <span className="px-1.5 py-0.2 rounded bg-sky-500/20 text-sky-300 border border-sky-500/40 text-[9px] font-mono font-bold">P1</span>
                 </div>
                 <span className="text-[9px] uppercase font-mono tracking-widest text-slate-400 -mt-1 flex items-center gap-1">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
@@ -162,7 +162,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
             </a>
 
             {/* Desktop Nav Dock */}
-            <nav className="hidden md:flex items-center gap-1 bg-[#0f111e]/90 px-3 py-1.5 rounded-full border border-purple-500/30 shadow-inner">
+            <nav className="hidden md:flex items-center gap-1 bg-[#0f111e]/90 px-3 py-1.5 rounded-full border border-sky-500/30 shadow-inner">
               {navLinks.map((link) => {
                 const isActive = activeSection === link.id;
                 return (
@@ -171,7 +171,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
                     href={link.href}
                     className={`relative px-3.5 py-1 rounded-full text-xs font-bold tracking-wide transition-all ${
                       isActive
-                        ? 'text-white bg-purple-600 border border-purple-400 shadow-md shadow-purple-950/50'
+                        ? 'text-white bg-sky-600 border border-sky-400 shadow-md shadow-sky-950/50'
                         : 'text-slate-400 hover:text-white'
                     }`}
                   >
@@ -185,14 +185,14 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
             <div className="hidden md:flex items-center gap-2.5">
               <button
                 onClick={onOpenCv}
-                className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 border border-purple-500/30 hover:border-purple-400 hover:text-white transition-all bg-[#0f111e] cursor-pointer active:scale-95 flex items-center gap-1.5 shadow-sm"
+                className="px-3.5 py-1.5 rounded-xl text-xs font-bold text-slate-300 border border-sky-500/30 hover:border-sky-400 hover:text-white transition-all bg-[#0f111e] cursor-pointer active:scale-95 flex items-center gap-1.5 shadow-sm"
               >
-                <FileText className="w-3.5 h-3.5 text-purple-400" />
+                <FileText className="w-3.5 h-3.5 text-sky-400" />
                 <span>Resume (CV)</span>
               </button>
               <button
                 onClick={onOpenContact}
-                className="px-4 py-1.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-purple-600 via-indigo-600 to-emerald-500 hover:from-purple-500 hover:to-emerald-400 transition-all flex items-center gap-1 cursor-pointer active:scale-95 shadow-lg shadow-purple-950/40 border border-purple-400/40"
+                className="px-4 py-1.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-sky-600 via-cyan-600 to-emerald-500 hover:from-sky-500 hover:to-emerald-400 transition-all flex items-center gap-1 cursor-pointer active:scale-95 shadow-lg shadow-sky-950/40 border border-sky-400/40"
               >
                 <Zap className="w-3.5 h-3.5 text-amber-300 fill-amber-300" />
                 <span>Start Quest</span>
@@ -204,7 +204,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
             <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                className="p-2 rounded-xl bg-[#0f111e] border border-purple-500/30 text-slate-300 hover:text-white cursor-pointer"
+                className="p-2 rounded-xl bg-[#0f111e] border border-sky-500/30 text-slate-300 hover:text-white cursor-pointer"
                 aria-label="Toggle Navigation Menu"
               >
                 {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -221,7 +221,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.2 }}
-              className="md:hidden overflow-hidden bg-[#08090f] border-b border-purple-500/30 px-4 pt-3 pb-6 space-y-3 shadow-2xl"
+              className="md:hidden overflow-hidden bg-[#08090f] border-b border-sky-500/30 px-4 pt-3 pb-6 space-y-3 shadow-2xl"
             >
               <div className="flex flex-col space-y-1">
                 {navLinks.map((link) => {
@@ -233,7 +233,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
                       onClick={() => setMobileMenuOpen(false)}
                       className={`px-4 py-2.5 rounded-xl text-sm font-bold flex items-center justify-between transition-colors ${
                         isActive
-                          ? 'bg-purple-600 text-white border border-purple-400'
+                          ? 'bg-sky-600 text-white border border-sky-400'
                           : 'text-slate-300 hover:bg-[#0f111e] hover:text-white'
                       }`}
                     >
@@ -243,15 +243,15 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
                 })}
               </div>
 
-              <div className="pt-3 border-t border-purple-500/20 flex flex-col gap-2">
+              <div className="pt-3 border-t border-sky-500/20 flex flex-col gap-2">
                 <button
                   onClick={() => {
                     setMobileMenuOpen(false);
                     onOpenCv();
                   }}
-                  className="w-full py-2.5 rounded-xl text-xs font-bold text-slate-200 border border-purple-500/30 bg-[#0f111e] flex items-center justify-center gap-2 cursor-pointer"
+                  className="w-full py-2.5 rounded-xl text-xs font-bold text-slate-200 border border-sky-500/30 bg-[#0f111e] flex items-center justify-center gap-2 cursor-pointer"
                 >
-                  <FileText className="w-4 h-4 text-purple-400" />
+                  <FileText className="w-4 h-4 text-sky-400" />
                   View Resume (CV)
                 </button>
                 <button
@@ -259,7 +259,7 @@ export default function Navbar({ onOpenContact, onOpenCv }) {
                     setMobileMenuOpen(false);
                     onOpenContact();
                   }}
-                  className="w-full py-2.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-purple-600 to-emerald-500 flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
+                  className="w-full py-2.5 rounded-xl text-xs font-black text-white bg-gradient-to-r from-sky-600 to-emerald-500 flex items-center justify-center gap-1.5 cursor-pointer shadow-md"
                 >
                   <Zap className="w-4 h-4 text-amber-300 fill-amber-300" />
                   Start Quest (Contact)

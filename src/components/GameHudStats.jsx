@@ -4,12 +4,12 @@ import { Heart, Zap, Award, Flame } from 'lucide-react';
 
 export default function GameHudStats() {
   return (
-    <div className="w-full bg-[#07080d]/90 border-b border-purple-500/30 py-2.5 px-4 font-mono text-xs select-none relative z-30">
+    <div className="w-full bg-[#07080d]/90 border-b border-sky-500/30 py-2.5 px-4 font-mono text-xs select-none relative z-30">
       <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
         
         {/* Left: Player Status */}
         <div className="flex items-center gap-3">
-          <span className="px-2 py-0.5 rounded bg-purple-600 text-white font-black text-[10px] tracking-wider uppercase">
+          <span className="px-2 py-0.5 rounded bg-sky-600 text-white font-black text-[10px] tracking-wider uppercase">
             P1 HUD
           </span>
           <span className="text-slate-300 font-bold text-[11px] hidden sm:inline-block">

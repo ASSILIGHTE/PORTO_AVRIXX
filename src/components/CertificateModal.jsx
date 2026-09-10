@@ -152,7 +152,7 @@ export default function CertificateModal({ isOpen, onClose, certId = "bnsp-junio
                   </div>
 
                   <div className="flex items-start gap-3 pb-2.5 border-b border-slate-800/80">
-                    <FileText className="w-4 h-4 text-indigo-400 shrink-0 mt-0.5" />
+                    <FileText className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                     <div>
                       <div className="text-slate-400 text-[11px]">No. Registrasi (Reg. TIK):</div>
                       <div className="text-cyan-300 font-mono font-semibold">{cert.regNo}</div>
@@ -177,7 +177,7 @@ export default function CertificateModal({ isOpen, onClose, certId = "bnsp-junio
                   </div>
 
                   <div className="flex items-start gap-3 pb-2.5 border-b border-slate-800/80">
-                    <Calendar className="w-4 h-4 text-purple-400 shrink-0 mt-0.5" />
+                    <Calendar className="w-4 h-4 text-sky-400 shrink-0 mt-0.5" />
                     <div>
                       <div className="text-slate-400 text-[11px]">Tanggal Terbit & Masa Berlaku:</div>
                       <div className="text-slate-200 font-semibold">{cert.location}, {cert.issueDate}</div>

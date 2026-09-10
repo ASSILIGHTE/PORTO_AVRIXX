@@ -7,14 +7,14 @@ export default function About() {
   const { about } = portfolioData;
 
   const iconMap = [
-    <Layout className="w-5 h-5 text-purple-400" />,
+    <Layout className="w-5 h-5 text-sky-400" />,
     <Server className="w-5 h-5 text-emerald-400" />,
     <Database className="w-5 h-5 text-sky-400" />,
     <Brain className="w-5 h-5 text-amber-400" />
   ];
 
   return (
-    <section id="about" className="py-24 relative bg-[#08090f] border-t border-purple-500/20">
+    <section id="about" className="py-24 relative bg-[#08090f] border-t border-sky-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -27,9 +27,9 @@ export default function About() {
         >
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
-            <Gamepad2 className="w-4 h-4 text-purple-400" />
+            <Gamepad2 className="w-4 h-4 text-sky-400" />
             <span>CHARACTER SPECS & BACKGROUND</span>
           </motion.div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
@@ -49,7 +49,7 @@ export default function About() {
             viewport={{ once: true, margin: '-50px' }}
             transition={{ duration: 0.5 }}
             whileHover={{ y: -3 }}
-            className="lg:col-span-6 flex flex-col justify-between space-y-6 p-7 rounded-2xl bg-[#0f111e] border border-purple-500/30 pro-card hud-corner"
+            className="lg:col-span-6 flex flex-col justify-between space-y-6 p-7 rounded-2xl bg-[#0f111e] border border-sky-500/30 pro-card hud-corner"
           >
             <div className="space-y-4">
               <span className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1.5">
@@ -70,7 +70,7 @@ export default function About() {
                 <motion.div
                   key={idx}
                   whileHover={{ scale: 1.04, x: 4 }}
-                  className="flex items-center gap-2.5 p-3 rounded-xl bg-[#08090f] border border-purple-500/20 text-xs text-slate-200 font-bold transition-colors cursor-pointer"
+                  className="flex items-center gap-2.5 p-3 rounded-xl bg-[#08090f] border border-sky-500/20 text-xs text-slate-200 font-bold transition-colors cursor-pointer"
                 >
                   <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
                   <span>{role}</span>
@@ -79,7 +79,7 @@ export default function About() {
             </div>
 
             {/* Stat Counters */}
-            <div className="grid grid-cols-3 gap-3 pt-6 border-t border-purple-500/20">
+            <div className="grid grid-cols-3 gap-3 pt-6 border-t border-sky-500/20">
               {about.stats.map((stat, idx) => {
                 const isPatent = stat.label.toLowerCase().includes('paten') || stat.value.toLowerCase().includes('predict');
                 const CardWrapper = isPatent ? motion.a : motion.div;
@@ -95,11 +95,11 @@ export default function About() {
                     key={idx}
                     whileHover={{ scale: 1.06, y: -3 }}
                     {...extraProps}
-                    className={`p-3.5 rounded-xl bg-[#08090f] border border-purple-500/20 text-center flex flex-col justify-center space-y-1 transition-colors ${
+                    className={`p-3.5 rounded-xl bg-[#08090f] border border-sky-500/20 text-center flex flex-col justify-center space-y-1 transition-colors ${
                       isPatent ? 'hover:border-emerald-500/50 group/stat cursor-pointer' : ''
                     }`}
                   >
-                    <div className="text-lg sm:text-xl font-black text-purple-300 font-mono">
+                    <div className="text-lg sm:text-xl font-black text-sky-300 font-mono">
                       {stat.value}
                     </div>
                     <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider flex items-center justify-center gap-1 font-semibold">
@@ -123,16 +123,16 @@ export default function About() {
                 viewport={{ once: true, margin: '-40px' }}
                 transition={{ duration: 0.45, delay: idx * 0.1 }}
                 whileHover={{ y: -6, scale: 1.02 }}
-                className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 space-y-3 pro-card hud-corner flex flex-col justify-between cursor-pointer group"
+                className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 space-y-3 pro-card hud-corner flex flex-col justify-between cursor-pointer group"
               >
                 <div className="space-y-3">
                   <motion.div 
                     whileHover={{ rotate: 10, scale: 1.1 }}
-                    className="w-9 h-9 rounded-xl bg-[#08090f] border border-purple-500/30 flex items-center justify-center"
+                    className="w-9 h-9 rounded-xl bg-[#08090f] border border-sky-500/30 flex items-center justify-center"
                   >
                     {iconMap[idx % iconMap.length]}
                   </motion.div>
-                  <h4 className="text-base font-bold text-white group-hover:text-purple-300 transition-colors">
+                  <h4 className="text-base font-bold text-white group-hover:text-sky-300 transition-colors">
                     {item.title}
                   </h4>
                   <p className="text-xs text-slate-400 leading-relaxed font-normal">
@@ -140,7 +140,7 @@ export default function About() {
                   </p>
                 </div>
 
-                <div className="pt-2 text-[10px] font-mono text-purple-400 font-bold">
+                <div className="pt-2 text-[10px] font-mono text-sky-400 font-bold">
                   SKILL BUFF 0{idx + 1}
                 </div>
               </motion.div>

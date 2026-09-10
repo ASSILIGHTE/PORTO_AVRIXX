@@ -8,7 +8,7 @@ export default function ExperienceEducation({ onOpenCert }) {
   const mainCert = certificationsList?.[0];
 
   return (
-    <section id="experience" className="py-24 relative bg-[#08090f] border-t border-purple-500/20 bg-pro-grid">
+    <section id="experience" className="py-24 relative bg-[#08090f] border-t border-sky-500/20 bg-pro-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
         
         {/* Section Header */}
@@ -21,7 +21,7 @@ export default function ExperienceEducation({ onOpenCert }) {
         >
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
             <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
             <span>CAMPAIGN LOG & ACHIEVEMENTS</span>
@@ -42,7 +42,7 @@ export default function ExperienceEducation({ onOpenCert }) {
             viewport={{ once: true, margin: '-40px' }}
             transition={{ duration: 0.5 }}
             whileHover={{ y: -4 }}
-            className="p-6 sm:p-8 rounded-2xl bg-[#0f111e] border border-purple-500/30 shadow-2xl relative overflow-hidden pro-card hud-corner"
+            className="p-6 sm:p-8 rounded-2xl bg-[#0f111e] border border-sky-500/30 shadow-2xl relative overflow-hidden pro-card hud-corner"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               
@@ -52,7 +52,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => onOpenCert?.(mainCert.id)}
-                  className="relative group/img cursor-pointer rounded-xl overflow-hidden border border-purple-500/40 max-w-sm transition-transform duration-200"
+                  className="relative group/img cursor-pointer rounded-xl overflow-hidden border border-sky-500/40 max-w-sm transition-transform duration-200"
                 >
                   <img 
                     src={mainCert.image} 
@@ -78,7 +78,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                     <Award className="w-3.5 h-3.5 text-amber-400" />
                     ACHIEVEMENT UNLOCKED: BNSP RI CERTIFICATION
                   </motion.span>
-                  <span className="px-3 py-1 rounded-full bg-[#08090f] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold">
+                  <span className="px-3 py-1 rounded-full bg-[#08090f] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold">
                     Reg. TIK 1565 68018 2026
                   </span>
                 </div>
@@ -87,7 +87,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                   <h3 className="text-2xl font-black text-white">
                     {mainCert.title}
                   </h3>
-                  <p className="text-xs font-mono text-purple-300">
+                  <p className="text-xs font-mono text-sky-300">
                     Authority: {mainCert.issuer} & {mainCert.lsp}
                   </p>
                 </div>
@@ -97,15 +97,15 @@ export default function ExperienceEducation({ onOpenCert }) {
                 </p>
 
                 <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
-                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-purple-500/20 text-xs cursor-pointer">
+                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-sky-500/20 text-xs cursor-pointer">
                     <span className="text-[10px] text-slate-400 block font-mono">No. Sertifikat</span>
                     <span className="font-mono text-slate-200 font-bold text-[11px] truncate block">{mainCert.certNo}</span>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-purple-500/20 text-xs cursor-pointer">
+                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-sky-500/20 text-xs cursor-pointer">
                     <span className="text-[10px] text-slate-400 block font-mono">Masa Berlaku</span>
                     <span className="font-mono text-slate-200 font-bold text-[11px] block">{mainCert.validity}</span>
                   </motion.div>
-                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-purple-500/20 text-xs col-span-2 sm:col-span-1 cursor-pointer">
+                  <motion.div whileHover={{ scale: 1.04 }} className="p-3 rounded-xl bg-[#08090f] border border-sky-500/20 text-xs col-span-2 sm:col-span-1 cursor-pointer">
                     <span className="text-[10px] text-slate-400 block font-mono">Status Verification</span>
                     <span className="font-mono text-emerald-400 font-black text-[11px] block">Verified (Competent)</span>
                   </motion.div>
@@ -134,8 +134,8 @@ export default function ExperienceEducation({ onOpenCert }) {
           
           {/* Left Column: Academic Campaign */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 pb-3 border-b border-purple-500/20">
-              <div className="p-2 rounded-xl bg-[#0f111e] text-purple-400 border border-purple-500/30">
+            <div className="flex items-center gap-3 pb-3 border-b border-sky-500/20">
+              <div className="p-2 rounded-xl bg-[#0f111e] text-sky-400 border border-sky-500/30">
                 <GraduationCap className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-black text-white">Academic Campaign</h3>
@@ -150,10 +150,10 @@ export default function ExperienceEducation({ onOpenCert }) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45 }}
                   whileHover={{ y: -4, scale: 1.01 }}
-                  className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 space-y-4 pro-card hud-corner cursor-pointer"
+                  className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 space-y-4 pro-card hud-corner cursor-pointer"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full bg-[#08090f] border border-purple-500/30 text-[11px] font-mono font-bold text-purple-300 flex items-center gap-1.5">
+                    <span className="px-3 py-1 rounded-full bg-[#08090f] border border-sky-500/30 text-[11px] font-mono font-bold text-sky-300 flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-slate-400" />
                       {edu.period}
                     </span>
@@ -162,7 +162,7 @@ export default function ExperienceEducation({ onOpenCert }) {
 
                   <div>
                     <h4 className="text-lg font-bold text-white">{edu.degree}</h4>
-                    <p className="text-sm font-bold text-purple-400 flex items-center gap-1.5 mt-0.5">
+                    <p className="text-sm font-bold text-sky-400 flex items-center gap-1.5 mt-0.5">
                       <Building className="w-3.5 h-3.5" />
                       {edu.institution}
                     </p>
@@ -172,7 +172,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                     {edu.description}
                   </p>
 
-                  <div className="space-y-2 pt-3 border-t border-purple-500/20">
+                  <div className="space-y-2 pt-3 border-t border-sky-500/20">
                     {edu.achievements.map((ach, aIdx) => (
                       <motion.div 
                         key={aIdx} 
@@ -191,8 +191,8 @@ export default function ExperienceEducation({ onOpenCert }) {
 
           {/* Right Column: Work & Police Guild Experience */}
           <div className="space-y-6">
-            <div className="flex items-center gap-3 pb-3 border-b border-purple-500/20">
-              <div className="p-2 rounded-xl bg-[#0f111e] text-purple-400 border border-purple-500/30">
+            <div className="flex items-center gap-3 pb-3 border-b border-sky-500/20">
+              <div className="p-2 rounded-xl bg-[#0f111e] text-sky-400 border border-sky-500/30">
                 <Briefcase className="w-5 h-5" />
               </div>
               <h3 className="text-xl font-black text-white">Guild Experience</h3>
@@ -207,10 +207,10 @@ export default function ExperienceEducation({ onOpenCert }) {
                   viewport={{ once: true }}
                   transition={{ duration: 0.45, delay: idx * 0.1 }}
                   whileHover={{ y: -4, scale: 1.01 }}
-                  className="p-6 rounded-2xl bg-[#0f111e] border border-purple-500/30 space-y-4 pro-card hud-corner cursor-pointer"
+                  className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 space-y-4 pro-card hud-corner cursor-pointer"
                 >
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="px-3 py-1 rounded-full bg-[#08090f] border border-purple-500/30 text-[11px] font-mono font-bold text-purple-300 flex items-center gap-1.5">
+                    <span className="px-3 py-1 rounded-full bg-[#08090f] border border-sky-500/30 text-[11px] font-mono font-bold text-sky-300 flex items-center gap-1.5">
                       <Calendar className="w-3.5 h-3.5 text-slate-400" />
                       {exp.period}
                     </span>
@@ -218,8 +218,8 @@ export default function ExperienceEducation({ onOpenCert }) {
 
                   <div>
                     <h4 className="text-lg font-bold text-white">{exp.role}</h4>
-                    <p className="text-sm font-bold text-purple-400 flex items-center gap-1.5 mt-0.5">
-                      <Building className="w-3.5 h-3.5 text-purple-400" />
+                    <p className="text-sm font-bold text-sky-400 flex items-center gap-1.5 mt-0.5">
+                      <Building className="w-3.5 h-3.5 text-sky-400" />
                       {exp.organization}
                     </p>
                   </div>
@@ -228,14 +228,14 @@ export default function ExperienceEducation({ onOpenCert }) {
                     {exp.description}
                   </p>
 
-                  <div className="space-y-2 pt-3 border-t border-purple-500/20">
+                  <div className="space-y-2 pt-3 border-t border-sky-500/20">
                     {exp.bullets.map((bullet, bIdx) => (
                       <motion.div 
                         key={bIdx} 
                         whileHover={{ x: 4 }}
                         className="flex items-start gap-2 text-xs text-slate-200 cursor-pointer font-medium"
                       >
-                        <Shield className="w-3.5 h-3.5 text-purple-400 shrink-0 mt-0.5" />
+                        <Shield className="w-3.5 h-3.5 text-sky-400 shrink-0 mt-0.5" />
                         <span>{bullet}</span>
                       </motion.div>
                     ))}

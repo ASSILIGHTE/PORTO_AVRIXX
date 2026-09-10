@@ -8,7 +8,7 @@ export default function GitHubCTA() {
   const { personal } = portfolioData;
 
   return (
-    <section className="py-14 relative bg-[#08090f] border-t border-purple-500/20">
+    <section className="py-14 relative bg-[#08090f] border-t border-sky-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,16 +16,16 @@ export default function GitHubCTA() {
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45 }}
           whileHover={{ y: -4 }}
-          className="relative rounded-2xl bg-[#0f111e] border border-purple-500/30 p-8 sm:p-10 shadow-2xl overflow-hidden pro-card hud-corner group"
+          className="relative rounded-2xl bg-[#0f111e] border border-sky-500/30 p-8 sm:p-10 shadow-2xl overflow-hidden pro-card hud-corner group"
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             
             <div className="space-y-3 text-center md:text-left max-w-2xl">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#08090f] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#08090f] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
               >
-                <Terminal className="w-3.5 h-3.5 text-purple-400" />
+                <Terminal className="w-3.5 h-3.5 text-sky-400" />
                 <span>OPEN SOURCE QUEST VAULT</span>
               </motion.div>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -37,7 +37,7 @@ export default function GitHubCTA() {
               
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs font-mono text-slate-300 pt-1 font-semibold">
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} className="flex items-center gap-1.5 cursor-pointer">
-                  <GitBranch className="w-4 h-4 text-purple-400" />
+                  <GitBranch className="w-4 h-4 text-sky-400" />
                   <span>Structured Repos</span>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} className="flex items-center gap-1.5 cursor-pointer">
@@ -58,11 +58,11 @@ export default function GitHubCTA() {
                 href={personal.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl bg-[#08090f] hover:bg-[#151829] border border-purple-500/30 hover:border-purple-400 text-white font-black text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
+                className="px-6 py-3.5 rounded-xl bg-[#08090f] hover:bg-[#151829] border border-sky-500/30 hover:border-sky-400 text-white font-black text-xs shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
               >
                 <Github className="w-4 h-4 text-white" />
                 <span>Visit GitHub Profile</span>
-                <ArrowUpRight className="w-3.5 h-3.5 text-purple-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                <ArrowUpRight className="w-3.5 h-3.5 text-sky-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
               </motion.a>
             </div>
 

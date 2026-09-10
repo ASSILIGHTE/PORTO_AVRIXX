@@ -8,7 +8,7 @@ export default function LinkedInCTA() {
   const { personal } = portfolioData;
 
   return (
-    <section className="py-14 relative bg-[#08090f] border-t border-purple-500/20">
+    <section className="py-14 relative bg-[#08090f] border-t border-sky-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -16,16 +16,16 @@ export default function LinkedInCTA() {
           viewport={{ once: true, margin: '-40px' }}
           transition={{ duration: 0.45 }}
           whileHover={{ y: -4 }}
-          className="relative rounded-2xl bg-[#0f111e] border border-purple-500/30 p-8 sm:p-10 shadow-2xl overflow-hidden pro-card hud-corner group"
+          className="relative rounded-2xl bg-[#0f111e] border border-sky-500/30 p-8 sm:p-10 shadow-2xl overflow-hidden pro-card hud-corner group"
         >
           <div className="relative z-10 flex flex-col md:flex-row items-center justify-between gap-8">
             
             <div className="space-y-3 text-center md:text-left max-w-2xl">
               <motion.div 
                 whileHover={{ scale: 1.05 }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#08090f] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#08090f] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
               >
-                <Linkedin className="w-3.5 h-3.5 text-purple-400" />
+                <Linkedin className="w-3.5 h-3.5 text-sky-400" />
                 <span>GUILD & PROFESSIONAL NETWORK</span>
               </motion.div>
               <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
@@ -37,7 +37,7 @@ export default function LinkedInCTA() {
               
               <div className="flex flex-wrap items-center justify-center md:justify-start gap-5 text-xs font-mono text-slate-300 pt-1 font-semibold">
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} className="flex items-center gap-1.5 cursor-pointer">
-                  <Users className="w-4 h-4 text-purple-400" />
+                  <Users className="w-4 h-4 text-sky-400" />
                   <span>Networking</span>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} className="flex items-center gap-1.5 cursor-pointer">
@@ -45,7 +45,7 @@ export default function LinkedInCTA() {
                   <span>Quest Opportunities</span>
                 </motion.div>
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} className="flex items-center gap-1.5 cursor-pointer">
-                  <MessageSquare className="w-4 h-4 text-sky-400" />
+                  <MessageSquare className="w-4 h-4 text-cyan-400" />
                   <span>Tech Dialogue</span>
                 </motion.div>
               </div>
@@ -58,7 +58,7 @@ export default function LinkedInCTA() {
                 href={personal.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white font-black text-xs shadow-lg shadow-purple-950/50 transition-all flex items-center justify-center gap-2 cursor-pointer border border-purple-400/40"
+                className="px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-black text-xs shadow-lg shadow-sky-950/50 transition-all flex items-center justify-center gap-2 cursor-pointer border border-sky-400/40"
               >
                 <Linkedin className="w-4 h-4 text-white" />
                 <span>Connect on LinkedIn</span>

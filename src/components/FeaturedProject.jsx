@@ -8,7 +8,7 @@ export default function FeaturedProject() {
   const { featuredCaseStudy } = portfolioData;
 
   return (
-    <section id="featured" className="py-24 relative bg-[#08090f] border-t border-purple-500/20 bg-pro-dots">
+    <section id="featured" className="py-24 relative bg-[#08090f] border-t border-sky-500/20 bg-pro-dots">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -21,7 +21,7 @@ export default function FeaturedProject() {
         >
           <motion.div 
             whileHover={{ scale: 1.05 }}
-            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-purple-500/30 text-purple-300 text-xs font-mono font-bold cursor-pointer"
+            className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
             <Trophy className="w-3.5 h-3.5 text-amber-400" />
             <span>FLAGSHIP BOSS QUEST</span>
@@ -41,7 +41,7 @@ export default function FeaturedProject() {
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.5 }}
           whileHover={{ y: -4 }}
-          className="rounded-2xl bg-[#0f111e] border border-purple-500/30 p-6 lg:p-10 shadow-2xl pro-card hud-corner"
+          className="rounded-2xl bg-[#0f111e] border border-sky-500/30 p-6 lg:p-10 shadow-2xl pro-card hud-corner"
         >
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
@@ -49,7 +49,7 @@ export default function FeaturedProject() {
             <div className="lg:col-span-6 space-y-6">
               
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#08090f] border border-purple-500/30 text-emerald-400 text-xs font-mono font-bold">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-[#08090f] border border-sky-500/30 text-emerald-400 text-xs font-mono font-bold">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" />
                   <span>{featuredCaseStudy.subtitle}</span>
                 </div>
@@ -63,10 +63,10 @@ export default function FeaturedProject() {
               </p>
 
               {/* Metrics Row */}
-              <div className="grid grid-cols-3 gap-3 py-4 border-y border-purple-500/20">
+              <div className="grid grid-cols-3 gap-3 py-4 border-y border-sky-500/20">
                 {featuredCaseStudy.metrics.map((m, idx) => (
                   <motion.div key={idx} whileHover={{ scale: 1.05, y: -2 }} className="space-y-1 cursor-pointer">
-                    <div className="text-base sm:text-lg font-mono font-black text-purple-300">
+                    <div className="text-base sm:text-lg font-mono font-black text-sky-300">
                       {m.value}
                     </div>
                     <div className="text-[10px] font-mono text-slate-400 uppercase tracking-wider font-semibold">
@@ -78,7 +78,7 @@ export default function FeaturedProject() {
 
               {/* Key Features Bullet List */}
               <div className="space-y-3">
-                <h4 className="text-xs font-mono uppercase text-purple-300 tracking-wider font-bold">
+                <h4 className="text-xs font-mono uppercase text-sky-300 tracking-wider font-bold">
                   QUEST BUFFS & ARCHITECTURAL HIGHLIGHTS:
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -101,7 +101,7 @@ export default function FeaturedProject() {
                   <motion.span
                     key={idx}
                     whileHover={{ scale: 1.08 }}
-                    className="px-3 py-1 rounded-lg bg-[#08090f] border border-purple-500/20 text-xs font-mono text-slate-300 font-medium cursor-pointer"
+                    className="px-3 py-1 rounded-lg bg-[#08090f] border border-sky-500/20 text-xs font-mono text-slate-300 font-medium cursor-pointer"
                   >
                     {t}
                   </motion.span>
@@ -116,7 +116,7 @@ export default function FeaturedProject() {
                   href={featuredCaseStudy.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-xl bg-purple-600 hover:bg-purple-500 text-white text-xs font-black flex items-center gap-2 shadow-lg shadow-purple-950/50 transition-colors cursor-pointer border border-purple-400/40"
+                  className="px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-black flex items-center gap-2 shadow-lg shadow-sky-950/50 transition-colors cursor-pointer border border-sky-400/40"
                 >
                   <Github className="w-4 h-4" />
                   <span>Inspect Quest Code on GitHub</span>
@@ -130,7 +130,7 @@ export default function FeaturedProject() {
             <div className="lg:col-span-6">
               <motion.div 
                 whileHover={{ scale: 1.02, rotateX: 2, rotateY: -2 }}
-                className="relative rounded-xl overflow-hidden border border-purple-500/30 shadow-xl group bg-[#08090f] cursor-pointer hud-corner"
+                className="relative rounded-xl overflow-hidden border border-sky-500/30 shadow-xl group bg-[#08090f] cursor-pointer hud-corner"
               >
                 <img
                   src={featuredCaseStudy.image}
@@ -140,7 +140,7 @@ export default function FeaturedProject() {
                 <div className="absolute inset-0 bg-gradient-to-t from-[#08090f]/80 via-transparent to-transparent pointer-events-none" />
                 
                 {/* Security Badge */}
-                <div className="absolute bottom-4 right-4 bg-[#08090f]/90 border border-purple-500/30 px-3.5 py-1.5 rounded-lg text-xs font-mono text-purple-300 font-bold flex items-center gap-2">
+                <div className="absolute bottom-4 right-4 bg-[#08090f]/90 border border-sky-500/30 px-3.5 py-1.5 rounded-lg text-xs font-mono text-sky-300 font-bold flex items-center gap-2">
                   <Lock className="w-3.5 h-3.5 text-emerald-400" />
                   <span>Role-Based Access Control (RBAC)</span>
                 </div>

@@ -171,13 +171,13 @@ export default function CvModal({ isOpen, onClose }) {
                     <div className="space-y-3">
                       <h4 className="text-base font-bold text-white tracking-wide border-b border-slate-500/40 pb-1.5 flex items-center justify-between">
                         <span>Hak Cipta / HAKI</span>
-                        <ShieldCheck className="w-4 h-4 text-purple-400" />
+                        <ShieldCheck className="w-4 h-4 text-sky-400" />
                       </h4>
                       <div className="text-xs space-y-1">
                         <div className="font-semibold text-white">
                           Aplikasi Predict-G
                         </div>
-                        <div className="text-[10px] text-purple-300 font-mono">
+                        <div className="text-[10px] text-sky-300 font-mono">
                           DJKI Kemenkumham RI
                         </div>
                         <a

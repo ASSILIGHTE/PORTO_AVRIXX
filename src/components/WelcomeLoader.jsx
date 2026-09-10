@@ -71,10 +71,10 @@ export default function WelcomeLoader({ onFinish }) {
               transition={{ duration: 0.5 }}
               className="relative group"
             >
-              <div className="w-16 h-16 rounded-2xl bg-[#0f111e] border-2 border-purple-500/50 flex items-center justify-center text-purple-400 shadow-xl shadow-purple-950/60 hud-corner">
-                <Gamepad2 className="w-8 h-8 animate-bounce text-purple-400" />
+              <div className="w-16 h-16 rounded-2xl bg-[#0f111e] border-2 border-sky-500/50 flex items-center justify-center text-sky-400 shadow-xl shadow-sky-950/60 hud-corner">
+                <Gamepad2 className="w-8 h-8 animate-bounce text-sky-400" />
               </div>
-              <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-purple-600 text-white text-[9px] font-mono font-black uppercase tracking-widest shadow-md whitespace-nowrap">
+              <span className="absolute -bottom-2.5 left-1/2 -translate-x-1/2 px-2 py-0.5 rounded-full bg-sky-600 text-white text-[9px] font-mono font-black uppercase tracking-widest shadow-md whitespace-nowrap">
                 PLAYER 1
               </span>
             </motion.div>
@@ -89,7 +89,7 @@ export default function WelcomeLoader({ onFinish }) {
               <h2 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
                 {portfolioData.personal.name}
               </h2>
-              <p className="text-xs font-mono uppercase tracking-widest text-purple-400 font-bold flex items-center justify-center gap-1.5">
+              <p className="text-xs font-mono uppercase tracking-widest text-sky-400 font-bold flex items-center justify-center gap-1.5">
                 <Zap className="w-3.5 h-3.5 text-amber-400 fill-amber-400" />
                 <span>LEVEL: SR. STUDENT DEVELOPER</span>
               </p>
@@ -100,9 +100,9 @@ export default function WelcomeLoader({ onFinish }) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="w-full p-4.5 rounded-2xl bg-[#0f111e]/90 border border-purple-500/30 space-y-3 text-left shadow-2xl pro-card hud-corner"
+              className="w-full p-4.5 rounded-2xl bg-[#0f111e]/90 border border-sky-500/30 space-y-3 text-left shadow-2xl pro-card hud-corner"
             >
-              <div className="flex items-center justify-between pb-2 border-b border-purple-500/20 text-[11px] font-mono text-purple-300">
+              <div className="flex items-center justify-between pb-2 border-b border-sky-500/20 text-[11px] font-mono text-sky-300">
                 <div className="flex items-center gap-2">
                   <Terminal className="w-3.5 h-3.5 text-emerald-400" />
                   <span>GAME_BOOT.LOG</span>
@@ -121,13 +121,13 @@ export default function WelcomeLoader({ onFinish }) {
               {/* XP / Loading Progress Bar */}
               <div className="space-y-1.5 pt-1">
                 <div className="flex items-center justify-between text-[11px] font-mono text-slate-300">
-                  <span className="font-semibold text-purple-300">SYSTEM POWER LEVEL</span>
+                  <span className="font-semibold text-sky-300">SYSTEM POWER LEVEL</span>
                   <span className="text-emerald-400 font-black">{progress}% XP</span>
                 </div>
 
-                <div className="w-full h-2.5 rounded-full bg-[#08090f] border border-purple-500/30 overflow-hidden p-0.5">
+                <div className="w-full h-2.5 rounded-full bg-[#08090f] border border-sky-500/30 overflow-hidden p-0.5">
                   <motion.div
-                    className="h-full rounded-full bg-gradient-to-r from-purple-600 via-indigo-500 to-emerald-400"
+                    className="h-full rounded-full bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-400"
                     style={{ width: `${progress}%` }}
                   />
                 </div>
@@ -138,7 +138,7 @@ export default function WelcomeLoader({ onFinish }) {
           </div>
 
           {/* Bottom Gamer Footer Badges */}
-          <div className="absolute bottom-8 text-[11px] font-mono text-purple-300 flex items-center gap-3 font-semibold">
+          <div className="absolute bottom-8 text-[11px] font-mono text-sky-300 flex items-center gap-3 font-semibold">
             <span>BNSP CERTIFIED DEV</span>
             <span>•</span>
             <span>HAKI REGISTERED</span>

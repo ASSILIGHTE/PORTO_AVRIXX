@@ -4,8 +4,8 @@ import { Trophy, Award, ShieldCheck, Sparkles, X } from 'lucide-react';
 
 export default function AchievementPopup() {
   const achievements = [
-    { title: 'ACHIEVEMENT UNLOCKED', desc: 'STTP Subdit V Siber Polda Sumsel System Architect (+5000 XP)', icon: <Trophy className="w-5 h-5 text-amber-300 animate-bounce" />, border: 'border-amber-500/50', bg: 'from-amber-500/20 to-purple-600/20' },
-    { title: 'RANK UNLOCKED', desc: 'BNSP Certified Web Developer (Reg. TIK 1565 68018 2026)', icon: <Award className="w-5 h-5 text-purple-300 animate-pulse" />, border: 'border-purple-500/50', bg: 'from-purple-600/20 to-indigo-600/20' },
+    { title: 'ACHIEVEMENT UNLOCKED', desc: 'STTP Subdit V Siber Polda Sumsel System Architect (+5000 XP)', icon: <Trophy className="w-5 h-5 text-amber-300 animate-bounce" />, border: 'border-amber-500/50', bg: 'from-amber-500/20 to-sky-600/20' },
+    { title: 'RANK UNLOCKED', desc: 'BNSP Certified Web Developer (Reg. TIK 1565 68018 2026)', icon: <Award className="w-5 h-5 text-sky-300 animate-pulse" />, border: 'border-sky-500/50', bg: 'from-sky-600/20 to-cyan-600/20' },
     { title: 'ARTIFACT UNLOCKED', desc: 'HAKI Registered Predict-G ML App (DJKI Kemenkumham RI)', icon: <ShieldCheck className="w-5 h-5 text-emerald-400" />, border: 'border-emerald-500/50', bg: 'from-emerald-600/20 to-teal-600/20' },
   ];
 
@@ -38,7 +38,7 @@ export default function AchievementPopup() {
             transition={{ type: "spring", stiffness: 400, damping: 20 }}
             className={`p-4 rounded-2xl bg-[#0f111e]/95 border-2 ${current.border} shadow-2xl backdrop-blur-xl bg-gradient-to-r ${current.bg} flex items-start gap-3.5 hud-corner relative group overflow-hidden`}
           >
-            <div className="p-2.5 rounded-xl bg-[#08090f] border border-purple-500/30 shrink-0">
+            <div className="p-2.5 rounded-xl bg-[#08090f] border border-sky-500/30 shrink-0">
               {current.icon}
             </div>
 
