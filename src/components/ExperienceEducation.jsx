@@ -10,7 +10,7 @@ export default function ExperienceEducation({ onOpenCert }) {
   return (
     <section id="experience" className="py-24 relative bg-[#08090f] border-t border-sky-500/20 bg-pro-grid">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-14">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -19,7 +19,7 @@ export default function ExperienceEducation({ onOpenCert }) {
           transition={{ duration: 0.4 }}
           className="flex flex-col items-center text-center space-y-2"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
@@ -45,19 +45,19 @@ export default function ExperienceEducation({ onOpenCert }) {
             className="p-6 sm:p-8 rounded-2xl bg-[#0f111e] border border-sky-500/30 shadow-2xl relative overflow-hidden pro-card hud-corner"
           >
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              
+
               {/* Certificate Image Thumbnail (5 Cols) */}
               <div className="lg:col-span-5 flex flex-col items-center justify-center">
-                <motion.div 
+                <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => onOpenCert?.(mainCert.id)}
                   className="relative group/img cursor-pointer rounded-xl overflow-hidden border border-sky-500/40 max-w-sm transition-transform duration-200"
                 >
-                  <img 
-                    src={mainCert.image} 
+                  <img
+                    src={mainCert.image}
                     alt={mainCert.title}
-                    className="w-full h-auto object-cover" 
+                    className="w-full h-auto object-cover"
                   />
                   <div className="absolute inset-0 bg-[#08090f]/70 opacity-0 group-hover/img:opacity-100 transition-opacity flex items-center justify-center gap-2 backdrop-blur-[2px]">
                     <span className="px-4 py-2 rounded-xl bg-amber-400 text-slate-950 font-black text-xs flex items-center gap-1.5 shadow-xl">
@@ -71,7 +71,7 @@ export default function ExperienceEducation({ onOpenCert }) {
               {/* Certificate Details (7 Cols) */}
               <div className="lg:col-span-7 space-y-4 text-left">
                 <div className="flex flex-wrap items-center gap-2">
-                  <motion.span 
+                  <motion.span
                     whileHover={{ scale: 1.05 }}
                     className="px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-300 text-xs font-mono font-black flex items-center gap-1.5 cursor-pointer"
                   >
@@ -79,7 +79,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                     PROFESSIONAL CERTIFICATION
                   </motion.span>
                   <span className="px-3 py-1 rounded-full bg-[#08090f] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold">
-                    Berlaku April 2026 - April 2029
+                    Berlaku Juni 2026 - Juni 2029
                   </span>
                 </div>
 
@@ -178,7 +178,7 @@ export default function ExperienceEducation({ onOpenCert }) {
 
         {/* Campaign Timeline Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          
+
           {/* Left Column: Academic Campaign */}
           <div className="space-y-6">
             <div className="flex items-center gap-3 pb-3 border-b border-sky-500/20">
@@ -221,8 +221,8 @@ export default function ExperienceEducation({ onOpenCert }) {
 
                   <div className="space-y-2 pt-3 border-t border-sky-500/20">
                     {edu.achievements.map((ach, aIdx) => (
-                      <motion.div 
-                        key={aIdx} 
+                      <motion.div
+                        key={aIdx}
                         whileHover={{ x: 4 }}
                         className="flex items-start gap-2 text-xs text-slate-200 cursor-pointer font-medium"
                       >
@@ -277,8 +277,8 @@ export default function ExperienceEducation({ onOpenCert }) {
 
                   <div className="space-y-2 pt-3 border-t border-sky-500/20">
                     {exp.bullets.map((bullet, bIdx) => (
-                      <motion.div 
-                        key={bIdx} 
+                      <motion.div
+                        key={bIdx}
                         whileHover={{ x: 4 }}
                         className="flex items-start gap-2 text-xs text-slate-200 cursor-pointer font-medium"
                       >
