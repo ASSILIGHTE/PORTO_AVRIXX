@@ -14,6 +14,7 @@ const lineVariants = {
 export default function WelcomeLoader({ onFinish }) {
   const [visible, setVisible] = useState(true);
   const [closing, setClosing] = useState(false);
+  const isMobile = window.matchMedia('(max-width: 640px)').matches;
 
   useEffect(() => {
     document.body.style.overflow = 'hidden';
@@ -38,41 +39,41 @@ export default function WelcomeLoader({ onFinish }) {
         <motion.div
           exit={{ opacity: 0 }}
           transition={{ duration: .22, ease: 'easeOut' }}
-          className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-[#06101a] px-6"
+          className="fixed inset-0 z-[200] flex items-center justify-center overflow-hidden bg-[#06101a] px-6 transform-gpu"
         >
           <motion.div
             initial={{ opacity: 0 }} animate={{ opacity: .45 }} transition={{ duration: .8 }}
-            className="absolute inset-0"
+            className="intro-grid absolute inset-0"
             style={{ backgroundImage: 'linear-gradient(rgba(34,211,238,.055) 1px, transparent 1px), linear-gradient(90deg, rgba(34,211,238,.055) 1px, transparent 1px)', backgroundSize: '48px 48px' }}
           />
 
           <motion.div
             initial={{ scale: .65, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
             transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-            className="absolute h-[32rem] w-[32rem] rounded-full bg-cyan-400/[0.04] blur-3xl"
+            className="intro-glow absolute h-[26rem] w-[26rem] sm:h-[32rem] sm:w-[32rem] rounded-full bg-cyan-400/[0.04] blur-2xl sm:blur-3xl transform-gpu"
           />
 
           <motion.svg
-            animate={closing ? { opacity: 0, scale: 1.08 } : { opacity: 1, scale: 1 }}
-            transition={{ duration: .45, ease: 'easeInOut' }}
-            className="absolute h-[min(82vw,680px)] w-[min(82vw,680px)]"
+            animate={closing ? { opacity: 0, scale: isMobile ? 1.02 : 1.08 } : { opacity: 1, scale: 1 }}
+            transition={{ duration: isMobile ? .28 : .45, ease: 'easeOut' }}
+            className="absolute h-[min(112vw,430px)] w-[min(112vw,430px)] sm:h-[min(82vw,680px)] sm:w-[min(82vw,680px)] transform-gpu"
             viewBox="0 0 600 600" fill="none" aria-hidden="true"
           >
-            <motion.circle cx="300" cy="300" r="220" stroke="rgba(34,211,238,.18)" strokeWidth="1" strokeDasharray="5 12" initial={{ rotate: 0 }} animate={{ rotate: 360 }} transition={{ duration: 18, repeat: Infinity, ease: 'linear' }} style={{ transformOrigin: '300px 300px' }} />
-            <motion.circle cx="300" cy="300" r="172" stroke="rgba(59,130,246,.2)" strokeWidth="1" strokeDasharray="2 9" initial={{ rotate: 360 }} animate={{ rotate: 0 }} transition={{ duration: 12, repeat: Infinity, ease: 'linear' }} style={{ transformOrigin: '300px 300px' }} />
+            <motion.circle cx="300" cy="300" r="220" stroke="rgba(34,211,238,.18)" strokeWidth="1" strokeDasharray="5 12" initial={{ rotate: 0 }} animate={isMobile ? { opacity: [.45, .8, .45] } : { rotate: 360 }} transition={{ duration: isMobile ? 2.6 : 18, repeat: Infinity, ease: 'linear' }} style={{ transformOrigin: '300px 300px' }} />
+            <motion.circle cx="300" cy="300" r="172" stroke="rgba(59,130,246,.2)" strokeWidth="1" strokeDasharray="2 9" initial={{ rotate: 360 }} animate={isMobile ? { opacity: [.7, .35, .7] } : { rotate: 0 }} transition={{ duration: isMobile ? 2.2 : 12, repeat: Infinity, ease: 'linear' }} style={{ transformOrigin: '300px 300px' }} />
             <motion.path d="M80 300H218M382 300H520" stroke="url(#introLine)" strokeWidth="1.5" variants={lineVariants} initial="hidden" animate="visible" custom={.15} />
             <motion.path d="M300 80V218M300 382V520" stroke="url(#introLine)" strokeWidth="1.5" variants={lineVariants} initial="hidden" animate="visible" custom={.3} />
-            <motion.path d="M146 146L236 236M364 364L454 454" stroke="rgba(34,211,238,.25)" variants={lineVariants} initial="hidden" animate="visible" custom={.45} />
-            <motion.path d="M454 146L364 236M236 364L146 454" stroke="rgba(59,130,246,.25)" variants={lineVariants} initial="hidden" animate="visible" custom={.55} />
-            {[0, 90, 180, 270].map((angle) => (
+            {!isMobile && <motion.path d="M146 146L236 236M364 364L454 454" stroke="rgba(34,211,238,.25)" variants={lineVariants} initial="hidden" animate="visible" custom={.45} />}
+            {!isMobile && <motion.path d="M454 146L364 236M236 364L146 454" stroke="rgba(59,130,246,.25)" variants={lineVariants} initial="hidden" animate="visible" custom={.55} />}
+            {(isMobile ? [0, 180] : [0, 90, 180, 270]).map((angle) => (
               <motion.circle key={angle} cx="300" cy="80" r="4" fill="#22d3ee" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: [0, 1, .35], scale: [0, 1.4, 1] }} transition={{ delay: .65 + angle / 700, duration: .75 }} style={{ transformOrigin: '300px 300px', transform: `rotate(${angle}deg)` }} />
             ))}
             <defs><linearGradient id="introLine"><stop stopColor="#22d3ee" stopOpacity="0"/><stop offset=".5" stopColor="#22d3ee"/><stop offset="1" stopColor="#3b82f6" stopOpacity="0"/></linearGradient></defs>
           </motion.svg>
 
           <motion.div
-            animate={closing ? { opacity: 0, scale: .9, filter: 'blur(12px)' } : { opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: .42, ease: [0.4, 0, 0.2, 1] }}
+            animate={closing ? { opacity: 0, scale: isMobile ? .96 : .9, filter: isMobile ? 'none' : 'blur(12px)' } : { opacity: 1, scale: 1, filter: 'none' }}
+            transition={{ duration: isMobile ? .3 : .42, ease: [0.4, 0, 0.2, 1] }}
             className="relative z-10 text-center"
           >
             <motion.div
@@ -94,7 +95,7 @@ export default function WelcomeLoader({ onFinish }) {
             </motion.p>
           </motion.div>
 
-          <motion.div initial={{ y: '-100%' }} animate={{ y: '100vh' }} transition={{ delay: .2, duration: 2.4, ease: 'linear' }} className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-300/[0.06] to-transparent" />
+          {!isMobile && <motion.div initial={{ y: '-100%' }} animate={{ y: '100vh' }} transition={{ delay: .2, duration: 2.4, ease: 'linear' }} className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-transparent via-cyan-300/[0.06] to-transparent" />}
           <motion.div initial={{ scaleX: 0 }} animate={closing ? { scaleX: 0 } : { scaleX: 1 }} transition={{ delay: closing ? 0 : 2.1, duration: .45, ease: 'easeInOut' }} className="absolute bottom-10 h-px w-48 origin-center bg-gradient-to-r from-transparent via-cyan-400 to-transparent" />
         </motion.div>
       )}

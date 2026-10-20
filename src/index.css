@@ -248,6 +248,18 @@ section[id]::after {
   .scroll-ambient { display: none; }
 }
 
+@media (max-width: 640px) {
+  .intro-grid {
+    background-size: 64px 64px !important;
+    opacity: .45 !important;
+  }
+
+  .intro-glow {
+    filter: blur(42px) !important;
+    opacity: .75;
+  }
+}
+
 @media print {
   body * { visibility: hidden; }
   #printable-cv, #printable-cv * { visibility: visible; }
