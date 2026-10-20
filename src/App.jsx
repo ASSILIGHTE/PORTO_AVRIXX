@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { MotionConfig } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import TickerBanner from './components/TickerBanner';
@@ -39,6 +40,7 @@ export default function App() {
   };
 
   return (
+    <MotionConfig transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }} reducedMotion="user">
     <div className="min-h-screen bg-[#09111d] text-slate-100 font-sans selection:bg-teal-300/25 selection:text-teal-50 relative overflow-x-hidden">
       {/* Ambient Glowing Animated Background Orbs */}
       <GlowParticles />
@@ -93,5 +95,6 @@ export default function App() {
         certId={selectedCertId} 
       />
     </div>
+    </MotionConfig>
   );
 }
