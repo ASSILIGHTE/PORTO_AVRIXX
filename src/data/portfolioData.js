@@ -56,7 +56,6 @@ export const portfolioData = {
       "Lulusan Teknik Informatika",
       "Web Developer",
       "Frontend Developer",
-      "Freelance Developer"
     ],
     bio: "Lulusan S1 Teknik Informatika Universitas Indo Global Mandiri dengan pengalaman magang sebagai Frontend Web Developer di Polda Sumatera Selatan serta menjalankan usaha freelance pengembangan website melalui AVRIXX STUDIO. Berpengalaman dalam pengembangan website responsif, perancangan UI/UX, aplikasi web, dan penelitian machine learning.",
     highlights: [
