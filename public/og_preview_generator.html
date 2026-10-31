@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <title>OG Preview Generator — AVRIXX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      width: 1200px;
+      height: 630px;
+      overflow: hidden;
+      background: #08090f;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .card {
+      width: 1200px;
+      height: 630px;
+      background: linear-gradient(135deg, #08090f 0%, #0d1120 60%, #0b1424 100%);
+      display: flex;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* ── background decorations ── */
+    .grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(14,165,233,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(14,165,233,.07) 1px, transparent 1px);
+      background-size: 48px 48px;
+    }
+
+    .glow-blob {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .glow-blob-1 { width: 480px; height: 480px; background: rgba(14,165,233,.13); top: -120px; left: -60px; }
+    .glow-blob-2 { width: 320px; height: 320px; background: rgba(99,102,241,.10); bottom: -100px; right: 80px; }
+    .glow-blob-3 { width: 200px; height: 200px; background: rgba(34,211,238,.08); top: 60px; right: 320px; }
+
+    /* ── left panel ── */
+    .left {
+      position: relative;
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 56px 64px;
+      flex: 0 0 620px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(14,165,233,.35);
+      background: rgba(14,165,233,.08);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #7dd3fc;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      width: fit-content;
+    }
+    .badge-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: #38bdf8;
+      box-shadow: 0 0 6px #38bdf8;
+    }
+
+    .brand {
+      font-size: 96px;
+      font-weight: 800;
+      letter-spacing: -4px;
+      line-height: 1;
+      background: linear-gradient(135deg, #ffffff 30%, #7dd3fc 70%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+    }
+
+    .name {
+      font-size: 22px;
+      font-weight: 600;
+      color: #e2e8f0;
+      letter-spacing: -.2px;
+      margin-bottom: 6px;
+    }
+
+    .title-line {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 13px;
+      font-weight: 400;
+      color: #7dd3fc;
+      letter-spacing: .04em;
+      margin-bottom: 28px;
+    }
+
+    .divider {
+      width: 48px;
+      height: 2px;
+      background: linear-gradient(90deg, #38bdf8, transparent);
+      margin-bottom: 28px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 32px;
+    }
+    .tag {
+      padding: 5px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(14,165,233,.25);
+      background: rgba(14,165,233,.07);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      color: #94a3b8;
+    }
+
+    .cert-row {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .cert-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      color: #64748b;
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .cert-icon {
+      width: 18px; height: 18px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 10px;
+      flex-shrink: 0;
+    }
+    .cert-icon.green { background: rgba(52,211,153,.15); color: #34d399; border: 1px solid rgba(52,211,153,.3); }
+    .cert-icon.amber { background: rgba(251,191,36,.12); color: #fbbf24; border: 1px solid rgba(251,191,36,.28); }
+
+    .url-badge {
+      position: absolute;
+      bottom: 40px;
+      left: 64px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: rgba(14,165,233,.7);
+      letter-spacing: .04em;
+    }
+
+    /* ── right panel ── */
+    .right {
+      position: relative;
+      z-index: 10;
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* HUD / circuit aesthetic */
+    .hud-frame {
+      position: relative;
+      width: 440px;
+      height: 380px;
+    }
+
+    .hud-box {
+      position: absolute;
+      border-radius: 12px;
+      border: 1px solid rgba(14,165,233,.2);
+      background: rgba(14,165,233,.04);
+      backdrop-filter: blur(2px);
+    }
+    .hud-box-1 { inset: 0; }
+    .hud-box-2 {
+      inset: 18px;
+      border-color: rgba(14,165,233,.12);
+      background: rgba(8,9,15,.6);
+    }
+
+    .hud-corner-mark {
+      position: absolute;
+      width: 14px; height: 14px;
+      border-color: #38bdf8;
+      border-style: solid;
+      border-width: 0;
+    }
+    .hud-corner-mark.tl { top: 0; left: 0; border-top-width: 2px; border-left-width: 2px; border-radius: 3px 0 0 0; }
+    .hud-corner-mark.tr { top: 0; right: 0; border-top-width: 2px; border-right-width: 2px; border-radius: 0 3px 0 0; }
+    .hud-corner-mark.bl { bottom: 0; left: 0; border-bottom-width: 2px; border-left-width: 2px; border-radius: 0 0 0 3px; }
+    .hud-corner-mark.br { bottom: 0; right: 0; border-bottom-width: 2px; border-right-width: 2px; border-radius: 0 0 3px 0; }
+
+    .code-block {
+      position: absolute;
+      inset: 36px;
+      padding: 20px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11.5px;
+      line-height: 1.8;
+      color: rgba(148,163,184,.35);
+      overflow: hidden;
+    }
+    .code-keyword { color: rgba(125,211,252,.55); }
+    .code-string  { color: rgba(110,231,183,.45); }
+    .code-fn      { color: rgba(196,181,253,.45); }
+    .code-comment { color: rgba(100,116,139,.5); font-style: italic; }
+    .code-num     { color: rgba(251,191,36,.45); }
+
+    .skill-dots {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+    }
+    .skill-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: rgba(14,165,233,.4);
+    }
+    .skill-dot.active { background: #38bdf8; box-shadow: 0 0 8px #38bdf8; }
+
+    /* floating stat cards */
+    .stat-card {
+      position: absolute;
+      background: rgba(8,9,15,.85);
+      border: 1px solid rgba(14,165,233,.25);
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-family: 'JetBrains Mono', monospace;
+      backdrop-filter: blur(4px);
+    }
+    .stat-card .stat-val {
+      font-size: 18px;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+    .stat-card .stat-lbl {
+      font-size: 9px;
+      color: #475569;
+      text-transform: uppercase;
+      letter-spacing: .06em;
+      margin-top: 2px;
+    }
+    .stat-card-1 { top: -18px; right: 40px; }
+    .stat-card-2 { bottom: -18px; left: 30px; }
+
+    /* vertical label */
+    .vert-label {
+      position: absolute;
+      right: 28px;
+      top: 50%;
+      transform: translateY(-50%) rotate(90deg);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      color: rgba(14,165,233,.3);
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+  <div class="grid-bg"></div>
+  <div class="glow-blob glow-blob-1"></div>
+  <div class="glow-blob glow-blob-2"></div>
+  <div class="glow-blob glow-blob-3"></div>
+
+  <!-- LEFT PANEL -->
+  <div class="left">
+    <div class="badge">
+      <div class="badge-dot"></div>
+      Available for Opportunities
+    </div>
+
+    <div class="brand">AVRIXX</div>
+    <div class="name">Aufariq Rajabi Fristyan</div>
+    <div class="title-line">Lulusan Teknik Informatika &nbsp;·&nbsp; Web Developer</div>
+    <div class="divider"></div>
+
+    <div class="tags">
+      <span class="tag">React.js</span>
+      <span class="tag">Laravel</span>
+      <span class="tag">HTML &amp; CSS</span>
+      <span class="tag">UI/UX Design</span>
+      <span class="tag">JavaScript</span>
+      <span class="tag">Bootstrap</span>
+    </div>
+
+    <div class="cert-row">
+      <div class="cert-item">
+        <div class="cert-icon green">✓</div>
+        <span>Junior Web Developer · BNSP / LSP Teknologi Digital</span>
+      </div>
+      <div class="cert-item">
+        <div class="cert-icon amber">★</div>
+        <span>Predict-G · DJKI No. 000852775</span>
+      </div>
+    </div>
+
+    <div class="url-badge">avrixx.xyz</div>
+  </div>
+
+  <!-- RIGHT PANEL -->
+  <div class="right">
+    <div class="hud-frame">
+      <div class="hud-box hud-box-1">
+        <div class="hud-corner-mark tl"></div>
+        <div class="hud-corner-mark tr"></div>
+        <div class="hud-corner-mark bl"></div>
+        <div class="hud-corner-mark br"></div>
+      </div>
+      <div class="hud-box hud-box-2"></div>
+
+      <div class="code-block">
+        <span class="code-comment">// Portfolio — AVRIXX Studio</span><br>
+        <span class="code-keyword">const</span> developer = {<br>
+        &nbsp;&nbsp;name: <span class="code-string">"Aufariq Rajabi Fristyan"</span>,<br>
+        &nbsp;&nbsp;stack: [<span class="code-string">"React"</span>, <span class="code-string">"Laravel"</span>, <span class="code-string">"CSS"</span>],<br>
+        &nbsp;&nbsp;certified: <span class="code-keyword">true</span>,<br>
+        &nbsp;&nbsp;projects: <span class="code-num">4</span>,<br>
+        &nbsp;&nbsp;location: <span class="code-string">"Palembang, ID"</span>,<br>
+        };<br><br>
+        <span class="code-keyword">function</span> <span class="code-fn">buildUI</span>(design) {<br>
+        &nbsp;&nbsp;<span class="code-keyword">return</span> design<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.responsive()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.animate()<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;.deliver();<br>
+        }<br><br>
+        <span class="code-comment">// DJKI No. 000852775</span>
+      </div>
+
+      <div class="skill-dots">
+        <div class="skill-dot active"></div>
+        <div class="skill-dot"></div>
+        <div class="skill-dot active"></div>
+        <div class="skill-dot"></div>
+        <div class="skill-dot active"></div>
+      </div>
+
+      <!-- Floating stat cards -->
+      <div class="stat-card stat-card-1">
+        <div class="stat-val">BNSP</div>
+        <div class="stat-lbl">Certified</div>
+      </div>
+      <div class="stat-card stat-card-2">
+        <div class="stat-val">DJKI</div>
+        <div class="stat-lbl">Hak Cipta</div>
+      </div>
+    </div>
+    <div class="vert-label">Portfolio 2026</div>
+  </div>
+
+</div>
+</body>
+</html>
