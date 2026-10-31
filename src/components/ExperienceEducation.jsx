@@ -1,9 +1,9 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Briefcase, Calendar, Building, CheckCircle2, Award, Zap, Shield, BookOpen } from 'lucide-react';
+import { GraduationCap, Briefcase, Calendar, Building, CheckCircle2, Award, Zap, Shield, BookOpen, Music2, Globe2, ExternalLink } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-export default function ExperienceEducation({ onOpenCert }) {
+export default function ExperienceEducation({ onOpenCert, onOpenTrainingCert }) {
   const { education, experience, certificationsList, training } = portfolioData;
   const mainCert = certificationsList?.[0];
 
@@ -167,8 +167,22 @@ export default function ExperienceEducation({ onOpenCert }) {
                   </div>
 
                   <div className="shrink-0 flex items-center gap-3 md:border-l md:border-white/10 md:pl-6">
-                    <Calendar className="w-4 h-4 text-teal-300" />
-                    <span className="text-xs font-mono font-bold text-slate-200">{item.period}</span>
+                    <div className="flex flex-col items-start gap-3">
+                      <div className="flex items-center gap-3">
+                        <Calendar className="w-4 h-4 text-teal-300" />
+                        <span className="text-xs font-mono font-bold text-slate-200">{item.period}</span>
+                      </div>
+                      <motion.button
+                        type="button"
+                        onClick={onOpenTrainingCert}
+                        whileHover={{ y: -2, scale: 1.02 }}
+                        whileTap={{ scale: 0.98 }}
+                        className="inline-flex min-h-10 cursor-pointer items-center justify-center gap-2 rounded-xl border border-teal-300/30 bg-teal-400/10 px-4 py-2.5 text-xs font-bold text-teal-200 transition-colors hover:border-teal-200/60 hover:bg-teal-400/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-teal-300"
+                      >
+                        <Award className="h-4 w-4" aria-hidden="true" />
+                        <span>Lihat Sertifikat Pelatihan</span>
+                      </motion.button>
+                    </div>
                   </div>
                 </motion.article>
               ))}
@@ -231,6 +245,7 @@ export default function ExperienceEducation({ onOpenCert }) {
                       </motion.div>
                     ))}
                   </div>
+
                 </motion.div>
               ))}
             </div>
@@ -287,6 +302,32 @@ export default function ExperienceEducation({ onOpenCert }) {
                       </motion.div>
                     ))}
                   </div>
+
+                  {exp.links?.length > 0 && (
+                    <div className="flex flex-col sm:flex-row flex-wrap gap-3 pt-1">
+                      {exp.links.map((link) => {
+                        const LinkIcon = link.type === 'tiktok' ? Music2 : Globe2;
+
+                        return (
+                          <motion.a
+                            key={link.href}
+                            href={link.href}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            onClick={(event) => event.stopPropagation()}
+                            whileHover={{ y: -2, scale: 1.02 }}
+                            whileTap={{ scale: 0.97 }}
+                            className="group/link inline-flex min-h-11 items-center justify-center gap-2 rounded-xl border border-sky-400/30 bg-sky-400/10 px-4 py-2.5 text-xs font-bold text-sky-200 transition-colors hover:border-sky-300/60 hover:bg-sky-400/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300 focus-visible:ring-offset-2 focus-visible:ring-offset-[#0f111e]"
+                            aria-label={`Buka ${link.label} di tab baru`}
+                          >
+                            <LinkIcon className="h-4 w-4 text-sky-300" aria-hidden="true" />
+                            <span>{link.label}</span>
+                            <ExternalLink className="h-3.5 w-3.5 text-slate-400 transition-colors group-hover/link:text-sky-200" aria-hidden="true" />
+                          </motion.a>
+                        );
+                      })}
+                    </div>
+                  )}
                 </motion.div>
               ))}
             </div>

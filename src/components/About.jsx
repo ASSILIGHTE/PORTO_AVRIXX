@@ -16,7 +16,7 @@ export default function About() {
   return (
     <section id="about" className="py-24 relative bg-[#08090f] border-t border-sky-500/20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -25,7 +25,7 @@ export default function About() {
           transition={{ duration: 0.4 }}
           className="flex flex-col items-center text-center space-y-2 mb-16"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
@@ -41,7 +41,7 @@ export default function About() {
         </motion.div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-stretch">
-          
+
           {/* Left Column: Positioning & Bio (6 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: -25 }}
@@ -113,7 +113,7 @@ export default function About() {
                 className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 space-y-3 pro-card hud-corner flex flex-col justify-between cursor-pointer group"
               >
                 <div className="space-y-3">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ rotate: 10, scale: 1.1 }}
                     className="w-9 h-9 rounded-xl bg-[#08090f] border border-sky-500/30 flex items-center justify-center"
                   >
@@ -128,7 +128,7 @@ export default function About() {
                 </div>
 
                 <div className="pt-2 text-[10px] font-mono text-sky-400 font-bold">
-                  SKILL BUFF 0{idx + 1}
+                  {idx + 1}
                 </div>
               </motion.div>
             ))}

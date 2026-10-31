@@ -9,6 +9,7 @@ export const portfolioData = {
     github: "https://github.com/ASSILIGHTE",
     linkedin: "https://www.linkedin.com/in/aufariqrf",
     website: "https://avrixx.xyz",
+    tiktok: "https://www.tiktok.com/@avrixxstudio",
     cvLink: "#download-cv",
     location: "Palembang, Indonesia",
     status: "Terbuka untuk peluang Web Development",
@@ -138,12 +139,24 @@ export const portfolioData = {
       id: "predict-g",
       title: "Predict-G - Aplikasi Prediksi Gaji",
       shortDescription: "Aplikasi prediksi rata-rata gaji bersih bulanan menggunakan PHP, metode ekstrapolasi linear Newton, dan spline kubik Hermite; tercatat di DJKI No. 000852775.",
-      image: "/projects/dems.png",
+      image: "/projects/predict-g-analysis.png",
       technologies: ["PHP", "Newton Linear Extrapolation", "Cubic Hermite Spline"],
       github: "https://github.com/ASSILIGHTE",
+      pdkiUrl: "https://pdki-indonesia.dgip.go.id/detail/e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       liveDemo: null,
       featured: true,
       category: "Hak Cipta / DJKI No. 000852775"
+    },
+    {
+      id: "avrixx-studio",
+      title: "AVRIXX Studio - Koleksi Ucapan Digital",
+      shortDescription: "Koleksi website ucapan digital untuk momen spesial yang dirancang agar kejutan terasa lebih personal, interaktif, dan berkesan.",
+      image: "/projects/avrixx-studio.png",
+      technologies: ["Interactive Website", "Responsive Design", "UI/UX", "Web Animation"],
+      github: null,
+      liveDemo: "https://studio.avrixx.xyz/",
+      featured: true,
+      category: "Website Showcase Interaktif"
     }
   ],
 
@@ -201,6 +214,10 @@ export const portfolioData = {
       bullets: [
         "Merancang UI/UX dengan fokus pada desain, animasi, dan pengalaman pengguna.",
         "Mengelola proyek dari komunikasi kebutuhan pelanggan, pengembangan, hingga publikasi website."
+      ],
+      links: [
+        { label: "TikTok AVRIXX", href: "https://www.tiktok.com/@avrixxstudio", type: "tiktok" },
+        { label: "Website AVRIXX", href: "https://studio.avrixx.xyz/", type: "website" }
       ]
     }
   ],

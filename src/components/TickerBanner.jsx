@@ -20,7 +20,7 @@ export default function TickerBanner() {
       <div className="flex items-center">
         <motion.div
           animate={{ x: ['0%', '-50%'] }}
-          transition={{ repeat: Infinity, duration: 25, ease: 'linear' }}
+          transition={{ repeat: Infinity, duration: 50, ease: 'linear' }}
           className="flex items-center gap-8 whitespace-nowrap shrink-0"
         >
           {marqueeList.map((item, idx) => (

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Send, CheckCircle2, Copy, MessageSquare, Zap } from 'lucide-react';
+import { Mail, MessageCircle, CheckCircle2, Copy, Zap } from 'lucide-react';
 import { Github, Linkedin } from './Icons';
 import { portfolioData } from '../data/portfolioData';
 
-export default function Contact({ isModalOpen, onCloseModal }) {
+export default function Contact({ onCloseModal }) {
   const { personal } = portfolioData;
   const [copied, setCopied] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -18,10 +18,16 @@ export default function Contact({ isModalOpen, onCloseModal }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const whatsappMessage = encodeURIComponent(
+      `Halo Aufariq, saya menghubungi Anda melalui website portfolio.\n\nNama / Organisasi: ${formData.name}\nEmail: ${formData.email}\n\nPesan:\n${formData.message}`
+    );
+
     setSubmitted(true);
+    window.location.href = `https://wa.me/6285704925946?text=${whatsappMessage}`;
+
     setTimeout(() => {
       setSubmitted(false);
-      setFormData({ name: '', email: '', message: '' });
       if (onCloseModal) onCloseModal();
     }, 2500);
   };
@@ -29,7 +35,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
   return (
     <section id="contact" className="py-24 relative bg-[#08090f] border-t border-sky-500/20 bg-pro-dots">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -38,7 +44,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
           transition={{ duration: 0.4 }}
           className="flex flex-col items-center text-center space-y-2 mb-14"
         >
-          <motion.div 
+          <motion.div
             whileHover={{ scale: 1.05 }}
             className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#0f111e] border border-sky-500/30 text-sky-300 text-xs font-mono font-bold cursor-pointer"
           >
@@ -46,7 +52,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
             <span>LET'S WORK TOGETHER</span>
           </motion.div>
           <h2 className="text-3xl sm:text-4xl font-black text-white tracking-tight">
-            Send Message to Player 1
+            Let's Connect & Collaborate
           </h2>
           <p className="text-slate-400 text-sm sm:text-base max-w-xl">
             Have a project proposal, technical question, or quest opportunity? Send a message directly.
@@ -54,7 +60,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
         </motion.div>
 
         <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
-          
+
           {/* Contact Info Cards (5 Cols) */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
@@ -63,9 +69,9 @@ export default function Contact({ isModalOpen, onCloseModal }) {
             transition={{ duration: 0.4 }}
             className="md:col-span-5 space-y-4"
           >
-            
+
             {/* Email Card */}
-            <motion.div 
+            <motion.div
               whileHover={{ y: -3, scale: 1.01 }}
               className="p-6 rounded-2xl bg-[#0f111e] border border-sky-500/30 space-y-3 pro-card hud-corner cursor-pointer"
             >
@@ -147,7 +153,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
             className="md:col-span-7"
           >
             <div className="p-6 sm:p-8 rounded-2xl bg-[#0f111e] border border-sky-500/30 shadow-2xl pro-card hud-corner">
-              
+
               {submitted ? (
                 <div className="py-12 text-center space-y-3">
                   <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center justify-center mx-auto">
@@ -155,7 +161,7 @@ export default function Contact({ isModalOpen, onCloseModal }) {
                   </div>
                   <h3 className="text-lg font-bold text-white">PESAN SIAP DIKIRIM</h3>
                   <p className="text-slate-400 text-xs sm:text-sm">
-                    Thank you for reaching out. Message received by Player 1.
+                    WhatsApp dibuka. Tekan tombol kirim di WhatsApp untuk mengirim pesan.
                   </p>
                 </div>
               ) : (
@@ -209,8 +215,8 @@ export default function Contact({ isModalOpen, onCloseModal }) {
                     type="submit"
                     className="w-full py-3.5 rounded-xl bg-gradient-to-r from-sky-600 via-cyan-600 to-emerald-500 hover:from-sky-500 hover:to-emerald-400 text-white font-black text-xs shadow-lg shadow-sky-950/50 transition-all flex items-center justify-center gap-2 cursor-pointer border border-sky-400/40 group"
                   >
-                    <Send className="w-4 h-4 text-white group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-                    <span>KIRIM PESAN</span>
+                    <MessageCircle className="w-4 h-4 text-white group-hover:scale-110 transition-transform" />
+                    <span>KIRIM VIA WHATSAPP</span>
                   </motion.button>
                 </form>
               )}

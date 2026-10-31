@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ExternalLink, FolderGit2, ArrowUpRight, ShieldCheck, Sparkles, Trophy } from 'lucide-react';
-import { Github } from './Icons';
+import { ArrowUpRight, ExternalLink, Images, ShieldCheck, Sparkles, Trophy } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 
-export default function Projects() {
+export default function Projects({ onOpenHaki }) {
   const { projects } = portfolioData;
   const [filterCategory, setFilterCategory] = useState('all');
 
@@ -141,51 +140,59 @@ export default function Projects() {
                   </div>
                 </div>
 
-                {/* Footer Buttons */}
-                <div className="p-6 pt-0 mt-2 flex flex-col sm:flex-row items-center gap-3">
-                  <motion.a
-                    whileHover={{ scale: 1.03 }}
-                    whileTap={{ scale: 0.95 }}
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full sm:flex-1 py-2.5 rounded-xl bg-[#06101a] hover:bg-[#13263a] border border-cyan-400/30 text-white text-xs font-bold flex items-center justify-center gap-2 transition-colors"
-                  >
-                    <Github className="w-4 h-4 text-sky-400" />
-                    <span>Lihat GitHub</span>
-                  </motion.a>
+                {project.pdkiUrl && (
+                  <div className="grid gap-3 px-6 pb-6 sm:grid-cols-2">
+                    <motion.button
+                      type="button"
+                      onClick={(event) => {
+                        event.stopPropagation();
+                        onOpenHaki?.();
+                      }}
+                      whileHover={{ y: -2, scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="flex min-h-11 w-full cursor-pointer items-center justify-center gap-2.5 rounded-xl border border-sky-400/30 bg-sky-400/10 px-4 py-3 text-xs font-bold text-sky-200 transition-colors hover:border-sky-300/60 hover:bg-sky-400/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                      aria-label="Tampilkan dua dokumen Hak Cipta Predict-G"
+                    >
+                      <Images className="h-4 w-4 text-sky-300" aria-hidden="true" />
+                      <span>Lihat Dokumen Hak Cipta</span>
+                    </motion.button>
 
-                  {project.pdkiUrl ? (
                     <motion.a
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.95 }}
                       href={project.pdkiUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-black flex items-center justify-center gap-1.5 transition-colors shrink-0 shadow-md shadow-sky-950/40"
+                      onClick={(event) => event.stopPropagation()}
+                      whileHover={{ y: -2, scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group/link flex min-h-11 w-full items-center justify-center gap-2.5 rounded-xl border border-emerald-400/30 bg-emerald-400/10 px-4 py-3 text-xs font-bold text-emerald-200 transition-colors hover:border-emerald-300/60 hover:bg-emerald-400/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300"
+                      aria-label="Buka detail Hak Cipta Predict-G di situs PDKI pada tab baru"
                     >
-                      <ShieldCheck className="w-4 h-4 text-amber-300" />
-                      <span>Informasi Hak Cipta</span>
-                      <ArrowUpRight className="w-3.5 h-3.5" />
+                      <ShieldCheck className="h-4 w-4 text-emerald-300" aria-hidden="true" />
+                      <span>Lihat Hak Cipta di PDKI</span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
                     </motion.a>
-                  ) : project.liveDemo ? (
+                  </div>
+                )}
+
+                {project.liveDemo && (
+                  <div className="px-6 pb-6">
                     <motion.a
-                      whileHover={{ scale: 1.03 }}
-                      whileTap={{ scale: 0.95 }}
                       href={project.liveDemo}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black flex items-center justify-center gap-1.5 transition-colors shrink-0 shadow-md shadow-emerald-950/40"
+                      onClick={(event) => event.stopPropagation()}
+                      whileHover={{ y: -2, scale: 1.01 }}
+                      whileTap={{ scale: 0.98 }}
+                      className="group/link flex min-h-11 w-full items-center justify-center gap-2.5 rounded-xl border border-fuchsia-400/30 bg-fuchsia-400/10 px-4 py-3 text-xs font-bold text-fuchsia-200 transition-colors hover:border-fuchsia-300/60 hover:bg-fuchsia-400/20 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-fuchsia-300"
+                      aria-label={`Kunjungi website ${project.title} di tab baru`}
                     >
-                      <span>Live Demo</span>
-                      <ExternalLink className="w-3.5 h-3.5" />
+                      <ExternalLink className="h-4 w-4 text-fuchsia-300" aria-hidden="true" />
+                      <span>Kunjungi Website</span>
+                      <ArrowUpRight className="h-4 w-4 transition-transform group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5" aria-hidden="true" />
                     </motion.a>
-                  ) : (
-                    <div className="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-[#06101a] border border-slate-500/30 text-slate-300 text-xs font-mono font-semibold flex items-center justify-center gap-1.5 shrink-0">
-                      <span>Project Overview</span>
-                    </div>
-                  )}
-                </div>
+                  </div>
+                )}
+
               </motion.div>
             ))}
           </AnimatePresence>

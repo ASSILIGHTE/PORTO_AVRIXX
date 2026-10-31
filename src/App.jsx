@@ -14,6 +14,8 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import CvModal from './components/CvModal';
 import CertificateModal from './components/CertificateModal';
+import HakiModal from './components/HakiModal';
+import TrainingCertificateModal from './components/TrainingCertificateModal';
 import GlowParticles from './components/GlowParticles';
 import ScrollExperience from './components/ScrollExperience';
 
@@ -22,6 +24,8 @@ export default function App() {
   const [cvModalOpen, setCvModalOpen] = useState(false);
   const [certModalOpen, setCertModalOpen] = useState(false);
   const [selectedCertId, setSelectedCertId] = useState('bnsp-junior-web-developer');
+  const [hakiModalOpen, setHakiModalOpen] = useState(false);
+  const [trainingCertModalOpen, setTrainingCertModalOpen] = useState(false);
 
   const handleOpenContact = () => {
     const el = document.getElementById('contact');
@@ -64,13 +68,16 @@ export default function App() {
         <Skills />
 
         {/* 4. Showcase Projects Section */}
-        <Projects />
+        <Projects onOpenHaki={() => setHakiModalOpen(true)} />
 
         {/* 5. Flagship Case Study Section */}
         <FeaturedProject />
 
         {/* 6. Experience, Education & Certification Timeline */}
-        <ExperienceEducation onOpenCert={handleOpenCert} />
+        <ExperienceEducation
+          onOpenCert={handleOpenCert}
+          onOpenTrainingCert={() => setTrainingCertModalOpen(true)}
+        />
 
         {/* 7. Dedicated GitHub CTA */}
         <GitHubCTA />
@@ -93,6 +100,13 @@ export default function App() {
         isOpen={certModalOpen} 
         onClose={() => setCertModalOpen(false)} 
         certId={selectedCertId} 
+      />
+
+      <HakiModal isOpen={hakiModalOpen} onClose={() => setHakiModalOpen(false)} />
+
+      <TrainingCertificateModal
+        isOpen={trainingCertModalOpen}
+        onClose={() => setTrainingCertModalOpen(false)}
       />
     </div>
     </MotionConfig>

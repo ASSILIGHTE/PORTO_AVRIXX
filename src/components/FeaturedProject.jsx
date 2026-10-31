@@ -108,21 +108,6 @@ export default function FeaturedProject() {
                 ))}
               </div>
 
-              {/* Action Button */}
-              <div className="flex flex-wrap items-center gap-4 pt-2">
-                <motion.a
-                  whileHover={{ scale: 1.03, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  href={featuredCaseStudy.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-6 py-3.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white text-xs font-black flex items-center gap-2 shadow-lg shadow-sky-950/50 transition-colors cursor-pointer border border-sky-400/40"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>Inspect Quest Code on GitHub</span>
-                  <ArrowUpRight className="w-3.5 h-3.5" />
-                </motion.a>
-              </div>
 
             </div>
 
